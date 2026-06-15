@@ -35,11 +35,10 @@ function Typewriter() {
   }, [text, deleting, wordIdx]);
 
   return (
-    <span style={{ color: "hsl(var(--brand-pink))" }}>
+    <span className="text-accent">
       {text}
       <span
-        className="inline-block w-[0.08em] h-[0.85em] ml-1 align-middle animate-pulse"
-        style={{ background: "hsl(var(--brand-pink))" }}
+        className="inline-block w-[0.08em] h-[0.85em] ml-1 align-middle animate-pulse bg-accent"
       />
     </span>
   );
@@ -48,7 +47,7 @@ function Typewriter() {
 export default function Blog() {
   return (
     <div className="min-h-screen bg-background">
-      <SeoHead slug="/blog" fallbackTitle="Blog, WeHome Cleaning" />
+      <SeoHead slug="/blog" fallbackTitle="Blog, CNA MAIDPRO" />
       <Header />
 
       {/* Editorial Hero */}
@@ -56,15 +55,15 @@ export default function Blog() {
         className="relative w-full overflow-hidden pt-28 pb-20 md:pt-36 md:pb-28"
         style={{
           background:
-            "linear-gradient(135deg, hsl(var(--brand-blush)) 0%, hsl(var(--background)) 55%, hsl(350 70% 94%) 100%)",
+            "linear-gradient(135deg, hsl(var(--primary) / 0.05) 0%, hsl(var(--background)) 55%, hsl(var(--accent) / 0.05) 100%)",
         }}
       >
         {/* Decorative grid lines */}
         <div
-          className="absolute inset-0 opacity-[0.06] pointer-events-none"
+          className="absolute inset-0 opacity-[0.03] pointer-events-none"
           style={{
             backgroundImage:
-              "linear-gradient(hsl(var(--brand-blue)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--brand-blue)) 1px, transparent 1px)",
+              "linear-gradient(hsl(var(--primary)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--primary)) 1px, transparent 1px)",
             backgroundSize: "64px 64px",
           }}
         />
@@ -78,29 +77,26 @@ export default function Blog() {
               transition={{ duration: 0.5 }}
             >
               <span
-                className="h-px w-12"
-                style={{ background: "hsl(var(--brand-pink))" }}
+                className="h-px w-12 bg-accent"
               />
               <span
-                className="text-[10px] md:text-[11px] font-bold uppercase tracking-[0.4em]"
-                style={{ color: "hsl(var(--brand-blue))" }}
+                className="text-[10px] md:text-[11px] font-bold uppercase tracking-[0.4em] text-primary"
               >
                 The Journal · Edition Nº 04
               </span>
             </motion.div>
 
             <motion.h1
-              className="text-5xl md:text-7xl lg:text-[5.5rem] leading-[0.95] font-light tracking-tight"
+              className="text-5xl md:text-7xl lg:text-[5.5rem] leading-[0.95] font-light tracking-tight text-primary"
               style={{
                 fontFamily: "var(--font-heading)",
-                color: "hsl(var(--brand-blue))",
               }}
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
             >
               Fresh{" "}
-              <em className="italic font-normal" style={{ color: "hsl(var(--brand-pink))" }}>
+              <em className="italic font-normal text-accent">
                 takes
               </em>
               <br />
@@ -109,26 +105,25 @@ export default function Blog() {
             </motion.h1>
 
             <motion.p
-              className="mt-8 max-w-md text-base md:text-lg leading-relaxed text-muted-foreground"
+              className="mt-8 max-w-md text-base md:text-lg leading-relaxed text-muted-foreground font-light"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
             >
-              A slow-reading collection of expert cleaning rituals, seasonal notes,
-              and the quiet craft behind every WeHome visit.
+              A slow reading collection of expert cleaning rituals, seasonal notes,
+              and the quiet craft behind every CNA MAIDPRO visit.
             </motion.p>
 
             <motion.div
-              className="mt-10 flex flex-wrap items-center gap-6 text-[11px] uppercase tracking-[0.25em] font-semibold"
-              style={{ color: "hsl(var(--brand-blue))" }}
+              className="mt-10 flex flex-wrap items-center gap-6 text-[11px] uppercase tracking-[0.25em] font-semibold text-primary"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.5 }}
             >
               <span>Weekly</span>
-              <span className="w-1 h-1 rounded-full" style={{ background: "hsl(var(--brand-pink))" }} />
+              <span className="w-1 h-1 rounded-full bg-accent" />
               <span>5 Min Reads</span>
-              <span className="w-1 h-1 rounded-full" style={{ background: "hsl(var(--brand-pink))" }} />
+              <span className="w-1 h-1 rounded-full bg-accent" />
               <span>No Fluff</span>
             </motion.div>
           </div>
@@ -140,12 +135,11 @@ export default function Blog() {
             transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
           >
             <div
-              className="absolute -top-4 -left-4 w-full h-full rounded-[2rem]"
-              style={{ background: "hsl(var(--brand-pink) / 0.35)" }}
+              className="absolute -top-4 -left-4 w-full h-full rounded-[2.5rem] bg-accent/10"
             />
             <video
               src="/videos/blog-hero.mp4"
-              className="relative w-full aspect-[9/16] object-contain rounded-[2rem] shadow-2xl bg-black"
+              className="relative w-full aspect-[9/16] object-contain rounded-[2.5rem] shadow-2xl bg-black"
               autoPlay
               loop
               muted
@@ -153,15 +147,11 @@ export default function Blog() {
               preload="auto"
             />
             <div
-              className="absolute -bottom-6 -right-6 px-5 py-4 rounded-2xl shadow-xl backdrop-blur"
-              style={{
-                background: "hsl(var(--brand-blue))",
-                color: "white",
-              }}
+              className="absolute -bottom-6 -right-6 px-6 py-5 rounded-2xl shadow-2xl backdrop-blur-md bg-primary text-white"
             >
               <div className="text-[10px] uppercase tracking-[0.3em] opacity-70">Since</div>
               <div className="text-2xl font-light" style={{ fontFamily: "var(--font-heading)" }}>
-                2023
+                2010
               </div>
             </div>
           </motion.div>

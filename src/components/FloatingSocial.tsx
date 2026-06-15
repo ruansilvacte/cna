@@ -1,17 +1,14 @@
 import { motion } from "framer-motion";
 import { Phone } from "lucide-react";
-import { Link } from "react-router-dom";
 import AIChatWidget from "./AIChatWidget";
-
 
 export default function FloatingSocial() {
   return (
     <>
-      {/* Social icons */}
       <div className="fixed bottom-20 right-4 md:bottom-24 md:right-6 z-50 flex flex-col gap-2 md:gap-3">
         {/* Instagram */}
         <motion.a
-          href="https://www.instagram.com/wehomecleaning/"
+          href="https://www.instagram.com/cnamaidpro/"
           target="_blank"
           rel="noopener noreferrer"
           className="w-12 h-12 md:w-14 md:h-14 rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform"
@@ -28,24 +25,23 @@ export default function FloatingSocial() {
           </svg>
         </motion.a>
 
-        {/* Request a Free Quote */}
+        {/* Call Now */}
         <motion.div
           initial={{ scale: 0, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ delay: 1.2, type: "spring", stiffness: 200 }}
         >
-          <Link
-            to="/quote"
+          <a
+            href="tel:9782357033"
             className="w-12 h-12 md:w-14 md:h-14 rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform"
             style={{ background: "hsl(var(--primary))" }}
-            aria-label="Request a Free Quote"
+            aria-label="Call Now"
           >
             <Phone className="w-6 h-6 md:w-7 md:h-7 text-white" />
-          </Link>
+          </a>
         </motion.div>
       </div>
 
-      {/* Chat widget - separate from social stack */}
       <AIChatWidget />
     </>
   );

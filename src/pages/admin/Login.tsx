@@ -67,7 +67,7 @@ export default function AdminLogin() {
   // Show nothing while checking if already authenticated
   if (authLoading) {
     return (
-      <div className="min-h-screen flex items-center justify-center" style={{ background: "var(--gradient-gold)" }}>
+      <div className="min-h-screen flex items-center justify-center p-8 bg-primary">
         <div className="flex flex-col items-center gap-4">
           <div className="w-8 h-8 border-4 border-white border-t-transparent rounded-full animate-spin" />
           <p className="text-white text-sm">Carregando...</p>
@@ -79,16 +79,16 @@ export default function AdminLogin() {
   return (
     <div
       className="min-h-screen flex items-center justify-center px-4"
-      style={{ background: "var(--gradient-gold)" }}
+      style={{ background: "var(--gradient-blue)" }}
     >
       <motion.div
-        className="w-full max-w-md bg-card rounded-3xl shadow-2xl p-8 md:p-10"
+        className="w-full max-w-md bg-card rounded-3xl shadow-2xl p-8 md:p-10 border border-border"
         initial={{ opacity: 0, y: 30, scale: 0.95 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
         transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
       >
         <div className="text-center mb-8">
-          <img loading="lazy" decoding="async" src="/logo.png" alt="WeHome Cleaning" className="h-16 mx-auto mb-3" />
+          <img loading="lazy" decoding="async" src="/logo.png" alt="CNA MAIDPRO" className="h-16 mx-auto mb-3" />
           <p className="text-muted-foreground text-sm">Sign in to manage your dashboard</p>
         </div>
 

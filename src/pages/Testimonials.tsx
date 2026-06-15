@@ -4,247 +4,218 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import FloatingSocial from "@/components/FloatingSocial";
 import SeoHead from "@/components/SeoHead";
-import { ArrowRight, Star, Quote } from "lucide-react";
+import { Star, Quote, CheckCircle } from "lucide-react";
 
-/* 10 unique editorial reviews, no overlap with home section */
-const wallReviews = [
+/* 8 real Google reviews — extracted from ava1.jpg through ava8.jpg */
+const bostonReviews = [
   {
-    text: "I host on Airbnb full time. Switched to WeHome eight months ago and my Superhost status has never been more secure. Their consistency is what sells.",
-    name: "Marina E.",
-    place: "Sarasota, FL",
-    service: "Short-Term Rental",
-  },
-  {
-    text: "First service after we moved in, they cleaned cabinets I hadn't even opened yet. Found a hidden water stain behind the sink and flagged it before it spread.",
-    name: "Caleb J.",
-    place: "Parrish, FL",
-    service: "Move-In Cleaning",
-  },
-  {
-    text: "I'm picky. I notice everything. After four monthly visits I still have nothing to flag. That alone is worth the price.",
-    name: "Diane O.",
-    place: "Bradenton, FL",
-    service: "Recurring Monthly",
-  },
-  {
-    text: "Sent before/after photos and the team beat their own quote on quality. Refreshing to work with people who genuinely care about the craft.",
-    name: "Wesley A.",
-    place: "Lakewood Ranch",
+    name: "Fernando Henrique",
+    avatar: "/images/testimonials/ava1.jpg",
+    badge: "Local Guide",
     service: "Deep Cleaning",
+    text: "I can't say enough good things about this cleaning company. From the moment they arrived, it was clear that they take their work seriously. They were right on time, and their attention to detail was truly impressive. Every nook and cranny of my home was cleaned thoroughly, and I couldn't find a single spot they missed. Not only did they leave my house sparkling clean, but their staff was also friendly and professional throughout the entire process. It's rare to find a cleaning service that combines efficiency with such a high level of customer service. I have used other cleaning companies in the past, but this one stands out as exceptional. If you're looking for a top-notch cleaning service, I highly recommend giving them a call. They've earned every one of these five stars!",
   },
   {
-    text: "Our office cleaning got an upgrade the day we hired them. Conference rooms ready before the first meeting, every Monday, without a single reminder.",
-    name: "Lauren P.",
-    place: "Tampa, FL",
+    name: "Susan Campbell",
+    avatar: "/images/testimonials/ava2.jpg",
+    badge: "7 reviews",
+    service: "Move In / Move Out",
+    text: "I am VERY pleased with 2 woman who I hired and how thorough they were. I used them today to clean an apartment in my only investment property. The kitchen cabinets, appliances, and bathroom all sparkled. They went above and beyond even doing a few things I'd not asked them to do. They were so pleasant and friendly, and happy to do whatever I asked of them. I have used many cleaning services in both my professional business and in my own home and they top the list. They had such wonderful personalities too. Just the best!!!",
+  },
+  {
+    name: "Grace Bilodeau",
+    avatar: "/images/testimonials/ava3.jpg",
+    badge: "Local Guide",
+    service: "Regular Cleaning",
+    text: "Cindi cleaned our home meticulously! It smelled and looked so good. She went above and beyond our expectations and was communicative through the cleaning about what we specifically wanted completed. We have two dogs and a baby and our home now looks like it belongs in a magazine. We switched from our previous cleaner to her based off seeing her work at a relatives home. Can't recommend enough!",
+  },
+  {
+    name: "Samuel Jeronimo",
+    avatar: "/images/testimonials/ava4.jpg",
+    badge: "4 reviews",
+    service: "Recurring Service",
+    text: "Our experience with they has been great! Everything was absolutely perfect. I haven't seen our house this clean in years and I couldn't be happier with the service. Team was on time friendly, efficient, and the results were even better than I had expected. Very very grateful to have found Cindi and her team.",
+  },
+  {
+    name: "Jean-Paul Otin",
+    avatar: "/images/testimonials/ava5.jpg",
+    badge: "1 review",
+    service: "Standard Cleaning",
+    text: "CNA MaidPro stands out in all five areas. They offer high quality work at a reasonable price, in a professional manner, and are attentive to our questions and always on time.",
+  },
+  {
+    name: "Adriana Turkson",
+    avatar: "/images/testimonials/ava6.jpg",
+    badge: "6 reviews",
+    service: "Deep Cleaning",
+    text: "Great communication through out the whole process. The cleaning was deep, no corner was missed. Extremely friendly and accommodating with us.",
+  },
+  {
+    name: "Cristiane Santos",
+    avatar: "/images/testimonials/ava7.jpg",
+    badge: "1 review",
     service: "Commercial",
+    text: "I have Cindi clean our office every two weeks. Her comes on time and leaves the office clean and smelling good. Her manages a good team and is able to execute a wide variety of different services.",
   },
   {
-    text: "They handle our short-term rental between every guest. I haven't logged in to fix a checklist in months. They just know what each unit needs.",
-    name: "Rafael S.",
-    place: "Anna Maria Island",
-    service: "Airbnb Turnover",
-  },
-  {
-    text: "Booked a deep clean for my mom's house before the holidays. She cried when she walked in. The team treated her place like their own grandmother's home.",
-    name: "Sophia L.",
-    place: "Ellenton, FL",
-    service: "Deep Cleaning",
-  },
-  {
-    text: "Post-renovation chaos: drywall dust everywhere, paint splatter on tile, fixtures cloudy. One visit and the house was magazine-ready. Unreal.",
-    name: "Greg D.",
-    place: "Palmetto, FL",
-    service: "Post-Construction",
-  },
-  {
-    text: "Moved out of a rental that had a tough landlord. Their move-out clean got us our full deposit back, no questions, no deductions. Receipts speak for themselves.",
-    name: "Nadia F.",
-    place: "Bradenton, FL",
-    service: "Move-Out Cleaning",
-  },
-  {
-    text: "Bi-weekly service for two years now. Same lead cleaner every visit, knows our routines, our pet, our preferences. That continuity is rare.",
-    name: "James & Eliana W.",
-    place: "Parrish, FL",
-    service: "Recurring Bi-Weekly",
+    name: "Daniel Gratzer-Cheney",
+    avatar: "/images/testimonials/ava8.jpg",
+    badge: "8 reviews",
+    service: "Regular Cleaning",
+    text: "They are the best cleaning service in the metro-west! Thank you for such great service!",
   },
 ];
 
-function PinkStars({ delay = 0, size = "w-4 h-4" }: { delay?: number; size?: string }) {
-  return (
-    <div className="flex gap-0.5">
-      {[...Array(5)].map((_, i) => (
-        <motion.div
-          key={i}
-          initial={{ opacity: 0, scale: 0 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: delay + i * 0.06, duration: 0.3, type: "spring", stiffness: 300 }}
-        >
-          <Star
-            className={size}
-            style={{ fill: "hsl(var(--brand-pink))", color: "hsl(var(--brand-pink))" }}
-          />
-        </motion.div>
-      ))}
-    </div>
-  );
-}
+const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
 export default function Testimonials() {
   return (
-    <div className="min-h-screen bg-background">
-      <SeoHead slug="/testimonials" fallbackTitle="Testimonials, WeHome Cleaning" />
+    <div className="min-h-screen bg-[#FDFCFB]">
+      <SeoHead
+        slug="/testimonials"
+        fallbackTitle="Client Testimonials | CNA MAIDPRO Boston"
+      />
       <Header />
 
-      {/* HERO, minimal editorial */}
-      <section className="relative pt-32 md:pt-40 pb-16 px-6 overflow-hidden" style={{ background: "hsl(var(--brand-blush))" }}>
-        <div
-          className="absolute -top-40 right-0 w-[500px] h-[500px] rounded-full blur-[160px] opacity-40 pointer-events-none"
-          style={{ background: "hsl(var(--brand-pink))" }}
+      {/* Hero Section */}
+      <section className="relative pt-44 pb-24 px-6 md:px-10 overflow-hidden bg-white">
+        <div 
+          className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full opacity-[0.02] blur-3xl pointer-events-none translate-x-1/4 -translate-y-1/4" 
+          style={{ background: "hsl(var(--cna-sage))" }} 
         />
-        <div className="relative max-w-7xl mx-auto grid md:grid-cols-12 gap-8 items-end">
-          <div className="md:col-span-8">
-            <motion.span
-              className="text-[0.7rem] font-bold uppercase tracking-[0.32em]"
-              style={{ color: "hsl(var(--brand-pink))" }}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.5 }}
-            >
-             , Testimonials
-            </motion.span>
-            <motion.h1
-              className="text-5xl md:text-7xl lg:text-[5.5rem] font-bold leading-[0.98] mt-5"
-              style={{ fontFamily: "var(--font-heading)", color: "hsl(var(--primary))" }}
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.9, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-            >
-              Stories from <em className="italic font-light" style={{ color: "hsl(var(--brand-pink))" }}>real homes</em><br />
-              we've cared for.
-            </motion.h1>
-          </div>
+        
+        <div className="max-w-4xl mx-auto relative z-10">
           <motion.div
-            className="md:col-span-4"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.3 }}
+            transition={{ duration: 0.8, ease }}
           >
-            <div className="rounded-[1.5rem] bg-white p-6 border border-border shadow-sm">
-              <div className="flex items-baseline gap-3">
-                <span
-                  className="text-5xl font-bold tabular-nums"
-                  style={{ fontFamily: "var(--font-heading)", color: "hsl(var(--primary))" }}
-                >
-                  5.0
-                </span>
-                <PinkStars size="w-5 h-5" />
-              </div>
-              <p className="text-xs uppercase tracking-[0.2em] mt-3" style={{ color: "hsl(var(--muted-foreground))" }}>
-                Average rating · 100+ verified reviews
-              </p>
-              <a
-                href="https://share.google/ylu8IY0nGt63rCcYy"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-4 inline-flex text-xs font-bold uppercase tracking-[0.2em] underline underline-offset-4"
-                style={{ color: "hsl(var(--primary))" }}
-              >
-                Read on Google →
-              </a>
-            </div>
+            <p className="text-[10px] font-bold uppercase tracking-[0.35em] text-accent mb-6 bg-accent/5 inline-block px-4 py-1.5 rounded-full">
+              The Gold Standard
+            </p>
+            <h1 
+              className="text-5xl md:text-7xl font-light tracking-tight text-primary leading-[1.05] mb-8"
+              style={{ fontFamily: "var(--font-heading)" }}
+            >
+              Trust is earned in <br />
+              <em className="font-normal italic text-accent-dark">every home we touch.</em>
+            </h1>
+            <p className="text-muted-foreground text-lg md:text-xl leading-relaxed max-w-2xl font-light">
+              Voices from across Greater Boston. Discover why families, hosts, and professionals choose CNA MAIDPRO for their most personal spaces.
+            </p>
           </motion.div>
         </div>
       </section>
 
-      {/* WALL, zigzag editorial blocks */}
-      <section className="px-6 py-20 md:py-28">
-        <div className="max-w-6xl mx-auto space-y-8 md:space-y-12">
-          {wallReviews.map((r, i) => {
-            const variants = [
-              { bg: "white", border: "hsl(var(--border))", color: "hsl(var(--primary))", isDark: false },
-              { bg: "hsl(var(--brand-pink) / 0.12)", border: "hsl(var(--brand-pink) / 0.3)", color: "hsl(var(--primary))", isDark: false },
-              { bg: "hsl(var(--primary))", border: "transparent", color: "white", isDark: true },
-            ];
-            const v = variants[i % 3];
-            const align = i % 2 === 0 ? "md:ml-0 md:mr-auto" : "md:ml-auto md:mr-0";
-
-            return (
-              <motion.article
-                key={i}
-                className={`relative max-w-3xl ${align} rounded-[2rem] p-8 md:p-12 border`}
-                style={{ background: v.bg, borderColor: v.border }}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.7, delay: 0.05, ease: [0.22, 1, 0.36, 1] }}
-              >
-                <Quote
-                  className="absolute -top-4 left-8 w-12 h-12"
-                  style={{
-                    color: v.isDark ? "hsl(var(--brand-pink))" : "hsl(var(--brand-pink))",
-                    opacity: v.isDark ? 0.6 : 0.25,
-                  }}
-                />
-                <div className="flex items-center justify-between mb-5">
-                  <PinkStars delay={0.1} />
-                  <span
-                    className="text-[0.65rem] font-bold uppercase tracking-[0.25em] px-3 py-1 rounded-full"
-                    style={{
-                      background: v.isDark ? "hsl(var(--brand-pink) / 0.2)" : "hsl(var(--primary) / 0.08)",
-                      color: v.isDark ? "hsl(var(--brand-pink-soft))" : "hsl(var(--primary))",
-                    }}
-                  >
-                    {r.service}
-                  </span>
-                </div>
-                <p
-                  className="text-xl md:text-2xl leading-snug font-light"
-                  style={{ fontFamily: "var(--font-heading)", color: v.color }}
-                >
-                  "{r.text}"
-                </p>
-                <div
-                  className="mt-8 pt-6 border-t flex items-baseline justify-between gap-4"
-                  style={{ borderColor: v.isDark ? "rgba(255,255,255,0.15)" : "hsl(var(--border))" }}
-                >
-                  <p className="text-sm font-bold" style={{ color: v.color }}>
-                   , {r.name}
-                  </p>
-                  <p
-                    className="text-[0.7rem] uppercase tracking-[0.22em]"
-                    style={{ color: v.isDark ? "rgba(255,255,255,0.6)" : "hsl(var(--muted-foreground))" }}
-                  >
-                    {r.place}
-                  </p>
-                </div>
-              </motion.article>
-            );
-          })}
+      {/* Stats / Proof Line */}
+      <section className="border-y border-border/50 bg-[#FDFCFB] py-12 px-6">
+        <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-center gap-x-16 gap-y-8">
+           {[
+             { label: "Client Satisfaction", value: "98%" },
+             { label: "Google Rating", value: "5.0 ★" },
+             { label: "Cleaning Specialists", value: "Verified" },
+             { label: "Trusted Since", value: "2015" }
+           ].map((stat, i) => (
+             <div key={i} className="flex flex-col items-center">
+               <span className="text-primary font-bold text-2xl" style={{ fontFamily: "var(--font-heading)" }}>{stat.value}</span>
+               <span className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground mt-1">{stat.label}</span>
+             </div>
+           ))}
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="px-6 py-20" style={{ background: "hsl(var(--brand-blush))" }}>
-        <div className="max-w-4xl mx-auto text-center">
-          <h2
-            className="text-3xl md:text-5xl font-bold leading-tight"
-            style={{ fontFamily: "var(--font-heading)", color: "hsl(var(--primary))" }}
-          >
-            Your story could be <em className="italic font-light" style={{ color: "hsl(var(--brand-pink))" }}>next</em>.
-          </h2>
-          <p className="text-muted-foreground mt-5 mb-9 max-w-xl mx-auto">
-            Get a personalized cleaning plan tailored to your home, rental, or workspace.
-          </p>
-          <Link
-            to="/quote"
-            className="inline-flex items-center gap-2 px-9 py-3.5 rounded-full text-sm font-semibold tracking-[0.15em] text-white transition-all hover:-translate-y-0.5"
-            style={{ background: "hsl(var(--primary))", boxShadow: "var(--shadow-soft)" }}
-          >
-            REQUEST A FREE QUOTE <ArrowRight className="w-4 h-4" />
-          </Link>
+      {/* Google Reviews Masonry */}
+      <section className="px-6 py-20 md:py-32">
+        <div className="max-w-7xl mx-auto">
+          <div className="columns-1 md:columns-2 lg:columns-3 gap-8 space-y-8">
+            {bostonReviews.map((r, i) => (
+              <motion.article
+                key={i}
+                className="break-inside-avoid relative group rounded-[2.5rem] p-10 border border-border/60 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_50px_-12px_rgba(0,0,0,0.07)] overflow-hidden"
+                style={{ 
+                  background: i % 2 === 0 ? "white" : "hsl(var(--cna-sage-pale) / 0.3)",
+                  boxShadow: "0 10px 30px -15px rgba(0,0,0,0.02)"
+                }}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.7, delay: i * 0.05, ease }}
+              >
+                {/* Visual Flair */}
+                <Quote 
+                  className="absolute -top-4 -right-4 w-24 h-24 text-accent/5 group-hover:text-accent/10 transition-colors pointer-events-none" 
+                />
+                
+                <div className="relative z-10">
+                  {/* Stars */}
+                  <div className="flex items-center gap-1 mb-6">
+                    {[...Array(5)].map((_, s) => (
+                      <Star key={s} className="w-3.5 h-3.5 fill-[#FBBC04] text-[#FBBC04]" />
+                    ))}
+                    <span className="ml-2 text-[10px] font-bold uppercase tracking-widest text-muted-foreground">Google Review</span>
+                  </div>
+
+                  {/* Review text */}
+                  <p 
+                    className="text-base md:text-lg leading-relaxed text-primary/80 font-light italic mb-10"
+                    style={{ fontFamily: "var(--font-heading)" }}
+                  >
+                    "{r.text}"
+                  </p>
+
+                  {/* Reviewer info */}
+                  <div className="pt-8 border-t border-border/40 flex items-center justify-between gap-4">
+                    <div className="flex items-center gap-3">
+                      <div className="w-11 h-11 rounded-full overflow-hidden border-2 border-white shadow-md shrink-0">
+                        <img 
+                          src={r.avatar} 
+                          alt={r.name} 
+                          className="w-full h-full object-cover"
+                          loading="lazy"
+                        />
+                      </div>
+                      <div>
+                        <h4 className="font-bold text-sm text-primary tracking-wide leading-none mb-1">{r.name}</h4>
+                        <p className="text-[10px] font-semibold text-muted-foreground">{r.badge}</p>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-border/40 shadow-sm transition-transform group-hover:scale-105 shrink-0">
+                       <CheckCircle className="w-3 h-3 text-accent" />
+                       <span className="text-[9px] font-bold uppercase tracking-wider text-primary/70">{r.service}</span>
+                    </div>
+                  </div>
+                </div>
+              </motion.article>
+            ))}
+          </div>
         </div>
+      </section>
+
+      {/* Featured Location Spotlight */}
+      <section className="bg-primary py-24 md:py-32 px-6">
+         <div className="max-w-5xl mx-auto text-center text-white">
+            <motion.div
+               initial={{ opacity: 0, scale: 0.95 }}
+               whileInView={{ opacity: 1, scale: 1 }}
+               viewport={{ once: true }}
+               transition={{ duration: 0.8, ease }}
+            >
+               <h2 className="text-3xl md:text-5xl font-light mb-8" style={{ fontFamily: "var(--font-heading)" }}>
+                  Ready for the <em className="italic font-normal text-accent-light">MaidPro Standard?</em>
+               </h2>
+               <p className="text-white/60 text-lg mb-12 max-w-2xl mx-auto font-light leading-relaxed">
+                  Join hundreds of families across Greater Boston who have reclaimed their time and restored their peace of mind.
+               </p>
+               <div className="flex flex-wrap justify-center gap-6">
+                  <Link to="/quote" className="btn-sage px-12 py-5 text-sm uppercase tracking-widest font-bold">
+                    Get a Free Estimate
+                  </Link>
+                  <a href="tel:9782357033" className="flex items-center gap-2 px-10 py-5 rounded-full border border-white/20 hover:bg-white/5 transition-all text-sm font-bold uppercase tracking-widest">
+                    Call 978.235.7033
+                  </a>
+               </div>
+            </motion.div>
+         </div>
       </section>
 
       <Footer />

@@ -152,19 +152,19 @@ export interface CinematicHeroProps extends React.HTMLAttributes<HTMLDivElement>
 }
 
 export function CinematicHero({
-  brandName = "Navy Cleaning",
+  brandName = "CNA MAIDPRO",
   tagline1 = "Experience the difference,",
   tagline2 = "in every detail.",
   cardHeading = "Professional cleaning, redefined.",
   cardDescription = (
     <>
-      With a structured digital presence across wehomecleaning.com, Instagram, Facebook, and 5-star ratings on Google and Turno, WeHome Cleaning delivers efficient communication, well-defined processes, and a 24-hour service guarantee, trusted by over 400 clients monthly across Massachusetts.
+      With a structured digital presence across our website, Instagram, Facebook, and 5 star ratings on Google and Turno, CNA MAIDPRO delivers efficient communication, well-defined processes, and a 24 hour service guarantee, trusted by over 400 clients monthly across Massachusetts.
     </>
   ),
   metricValue = 500,
   metricLabel = "Happy Clients",
   ctaHeading = "Book your cleaning today.",
-  ctaDescription = "Join hundreds of satisfied families across Massachusetts who trust Navy Cleaning Solutions for their homes.",
+  ctaDescription = "Join hundreds of satisfied families across Massachusetts who trust CNA MAIDPRO for their homes.",
   className,
   ...props
 }: CinematicHeroProps) {
@@ -291,7 +291,7 @@ export function CinematicHero({
               {cardDescription}
             </p>
             <div className="flex flex-wrap gap-3">
-              {["5★ Google & Turno", "400+ Services/Month", "wehomecleaning.com"].map((tag) => (
+              {["5★ Google & Turno", "400+ Services/Month", "Dedicated Support"].map((tag) => (
                 <span key={tag} className="floating-ui-badge px-4 py-2 rounded-full text-white text-xs font-medium flex items-center gap-2">
                   <Sparkles className="w-3 h-3 text-blue-400" />
                   {tag}
@@ -338,7 +338,7 @@ export function CinematicHero({
                       <Shield className="w-4 h-4 text-blue-400" />
                       <p className="text-white text-sm font-medium">Trusted Service</p>
                     </div>
-                    <p className="text-zinc-500 text-xs">Professional cleaning since 2009</p>
+                    <p className="text-zinc-500 text-xs">Professional cleaning since 2010</p>
                   </div>
 
                   {/* Widget 3 */}
@@ -368,7 +368,7 @@ export function CinematicHero({
         </div>
         <div className="floating-badge floating-ui-badge absolute bottom-8 left-8 md:bottom-12 md:left-20 z-40 px-4 py-2 rounded-full flex items-center gap-2">
           <Star className="w-4 h-4 text-yellow-400" />
-          <span className="text-white text-xs font-medium">5-Star Rated</span>
+          <span className="text-white text-xs font-medium">5 Star Rated</span>
         </div>
 
       </div>

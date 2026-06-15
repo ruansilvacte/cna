@@ -21,9 +21,8 @@ export const services: ServiceData[] = [
     slug: "regular-cleaning",
     icon: Home,
     title: "Regular Cleaning",
-    duration: "~2 hours",
-    description:
-      "Consistent maintenance cleaning to keep your home fresh and tidy week after week. Perfect for busy families and working professionals.",
+    duration: ", 2 hours",
+    description: "Keep your home consistently clean, organized and comfortable.",
     image: "/images/clean-floor.png",
     includes: [
       "Dusting all surfaces & furniture",
@@ -34,7 +33,7 @@ export const services: ServiceData[] = [
     ],
     fullContent: {
       intro:
-        "Regular Cleaning is designed for homes that need consistent upkeep. Whether you book weekly, bi-weekly, or monthly, our team arrives punctually, ready to deliver the same high standard every visit. It's the perfect solution for busy families, working professionals, and anyone who values a clean, welcoming home without lifting a finger.",
+        "Regular Cleaning is designed for homes that need consistent upkeep. Whether you book weekly, biweekly, or monthly, our team arrives punctually, ready to deliver the same high standard every visit. It's the perfect solution for busy families, working professionals, and anyone who values a clean, welcoming home without lifting a finger.",
       sections: [
         {
           heading: "What we clean",
@@ -49,7 +48,7 @@ export const services: ServiceData[] = [
         {
           heading: "Duration & scheduling",
           body:
-            "A standard regular cleaning session takes approximately 2 hours, depending on the size of your home. We offer flexible scheduling, weekly, bi-weekly, or monthly, so you can choose the frequency that works best for your lifestyle. No contracts, no lock-ins.",
+            "A standard regular cleaning session takes approximately 2 hours, depending on the size of your home. We offer flexible scheduling, weekly, biweekly, or monthly, so you can choose the frequency that works best for your lifestyle. No contracts, no lock-ins.",
         },
       ],
       notIncluded: [
@@ -71,9 +70,8 @@ export const services: ServiceData[] = [
     slug: "deep-cleaning",
     icon: Sparkles,
     title: "Deep Cleaning",
-    duration: "6–7 hours",
-    description:
-      "A thorough, top-to-bottom clean that reaches every corner. Ideal for seasonal refreshes or when your home needs extra attention.",
+    duration: "6, 7 hours",
+    description: "A detailed home refresh designed for spaces requiring extra attention.",
     image: "/images/clean-table.png",
     includes: [
       "Baseboards, vents & light fixtures",
@@ -121,10 +119,10 @@ export const services: ServiceData[] = [
   {
     slug: "post-construction",
     icon: HardHat,
-    title: "Post-Construction Cleaning",
+    title: "Post Construction Cleaning",
     duration: "Varies",
     description:
-      "Complete dust and debris removal after renovation or construction. We make your newly built or remodeled space move-in ready.",
+      "Complete dust and debris removal after renovation or construction. We make your newly built or remodeled space move in ready.",
     image: "/images/clean-bedroom.png",
     includes: [
       "Dust & debris removal from all surfaces",
@@ -135,22 +133,22 @@ export const services: ServiceData[] = [
     ],
     fullContent: {
       intro:
-        "After construction or renovation, the real work begins. Dust settles on every surface, debris accumulates in corners, and residues from paint, adhesives, and materials are left behind. Our Post-Construction Cleaning service is specifically designed to tackle all of this, transforming a work site into a clean, comfortable, move-in ready space.",
+        "After construction or renovation, the real work begins. Dust settles on every surface, debris accumulates in corners, and residues from paint, adhesives, and materials are left behind. Our Post Construction Cleaning service is specifically designed to tackle all of this, transforming a work site into a clean, comfortable, move in ready space.",
       sections: [
         {
           heading: "Specialized cleaning for construction sites",
           body:
-            "Our trained team handles the unique challenges of post-construction environments: fine dust that infiltrates every surface, adhesive residue on floors and glass, paint splatters, and leftover debris. We scrub and polish all floor types, clean windows and glass surfaces, wipe down walls and fixtures, and conduct a thorough final inspection to ensure nothing is missed.",
+            "Our trained team handles the unique challenges of post construction environments: fine dust that infiltrates every surface, adhesive residue on floors and glass, paint splatters, and leftover debris. We scrub and polish all floor types, clean windows and glass surfaces, wipe down walls and fixtures, and conduct a thorough final inspection to ensure nothing is missed.",
         },
         {
           heading: "Ideal for renovations of all sizes",
           body:
-            "Whether you've completed a single-room renovation, a full home remodel, or a new construction project, our service adapts to the scope of work. We work with homeowners, property managers, contractors, and real estate professionals to ensure the space is pristine and ready for occupancy.",
+            "Whether you've completed a single room renovation, a full home remodel, or a new construction project, our service adapts to the scope of work. We work with homeowners, property managers, contractors, and real estate professionals to ensure the space is pristine and ready for occupancy.",
         },
         {
           heading: "Timeline & scheduling",
           body:
-            "The duration of Post-Construction Cleaning varies depending on the size of the space and the extent of the construction work. We recommend scheduling a site assessment so we can provide an accurate time estimate and quote. Contact us to arrange a visit.",
+            "The duration of Post Construction Cleaning varies depending on the size of the space and the extent of the construction work. We recommend scheduling a site assessment so we can provide an accurate time estimate and quote. Contact us to arrange a visit.",
         },
       ],
       notIncluded: ["Carpet cleaning", "Curtain cleaning"],
@@ -162,12 +160,11 @@ export const services: ServiceData[] = [
     },
   },
   {
-    slug: "move-in-move-out",
+    slug: "move-in-move-out-cleaning",
     icon: Truck,
     title: "Move In / Move Out Cleaning",
     duration: "Varies",
-    description:
-      "Whether you're arriving or leaving, we ensure the space is spotless. Help secure your deposit or start fresh in your new home.",
+    description: "Stress free cleaning solutions for new beginnings and smooth transitions.",
     image: "/images/clean-bathroom.png",
     includes: [
       "Complete interior deep clean",
@@ -181,14 +178,14 @@ export const services: ServiceData[] = [
         "Moving is stressful enough, let us handle the cleaning. Our Move In / Move Out service ensures that every space is spotless, whether you're preparing a home for a new tenant, securing your rental deposit, or starting fresh in your new home. We cover every room, every cabinet, and every surface so nothing is left behind.",
       sections: [
         {
-          heading: "The complete move-out solution",
+          heading: "The complete move out solution",
           body:
             "When you leave a property, first impressions matter to landlords and the next occupants. Our team performs a thorough deep clean of the entire home, scrubbing bathrooms to remove scale and stains, cleaning all appliance exteriors, wiping inside every cabinet and closet, and mopping and vacuuming all floors. We finish with a detailed walkthrough to catch any missed spots.",
         },
         {
           heading: "Starting fresh in your new home",
           body:
-            "Moving into a new home? Don't assume it's been cleaned to your standards. Our Move-In service ensures you arrive to a truly fresh, sanitized space, from kitchen surfaces to bathroom tiles. We sanitize all high-touch areas and make sure every corner meets our quality standard before you unpack.",
+            "Moving into a new home? Don't assume it's been cleaned to your standards. Our Move In service ensures you arrive to a truly fresh, sanitized space, from kitchen surfaces to bathroom tiles. We sanitize all high-touch areas and make sure every corner meets our quality standard before you unpack.",
         },
         {
           heading: "Duration & availability",

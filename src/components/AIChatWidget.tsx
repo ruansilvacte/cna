@@ -94,7 +94,7 @@ export default function AIChatWidget() {
       });
     } catch (e: any) {
       console.error(e);
-      setMessages((prev) => [...prev, { role: "assistant", content: "Sorry, I'm having trouble connecting right now. Please try again or call us at (813) 520-2535." }]);
+      setMessages((prev) => [...prev, { role: "assistant", content: "Sorry, I'm having trouble connecting right now. Please try again or call us at 978.235.7033." }]);
       setLoading(false);
     }
   };
@@ -128,14 +128,14 @@ export default function AIChatWidget() {
             exit={{ opacity: 0, y: 20 }}
           >
             <motion.a
-              href="sms:+18135202535"
+              href="sms:+19782357033"
               className="flex items-center gap-2 px-4 py-3 rounded-xl bg-card border border-border shadow-lg hover:shadow-xl transition-shadow"
               whileHover={{ scale: 1.02 }}
             >
               <Phone className="w-5 h-5 text-accent" />
               <div>
                 <p className="text-sm font-semibold text-foreground">SMS</p>
-                <p className="text-[11px] text-muted-foreground">(813) 520-2535</p>
+                <p className="text-[11px] text-muted-foreground">978.235.7033</p>
               </div>
             </motion.a>
             <motion.button
@@ -171,12 +171,12 @@ export default function AIChatWidget() {
           >
             {/* Header */}
             <div className="px-4 py-3 border-b border-border flex items-center gap-3 shrink-0"
-              style={{ background: "linear-gradient(135deg, hsl(30 10% 10%), hsl(215 70% 20%))" }}>
+              style={{ background: "var(--gradient-blue)" }}>
               <div className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center">
                 <Bot className="w-5 h-5 text-white" />
               </div>
               <div className="flex-1">
-                <p className="text-sm font-bold text-white">WeHome Cleaning Assistant</p>
+                <p className="text-sm font-bold text-white">CNA MAIDPRO Assistant</p>
                 <p className="text-[11px] text-white/60">Ask about our cleaning services</p>
               </div>
               <button onClick={() => setOpen(false)} className="p-1.5 rounded-lg text-white/60 hover:text-white hover:bg-white/10 transition-colors">
@@ -189,7 +189,7 @@ export default function AIChatWidget() {
               {messages.length === 0 && (
                 <div className="text-center py-8">
                   <Bot className="w-12 h-12 mx-auto text-muted-foreground/30 mb-3" />
-                  <p className="text-sm font-medium text-foreground">Welcome to WeHome Cleaning! 👋</p>
+                  <p className="text-sm font-medium text-foreground">Welcome to CNA MAIDPRO! 👋</p>
                   <p className="text-xs text-muted-foreground mt-1">Ask me anything about our cleaning services.</p>
                   <div className="mt-4 space-y-2">
                     {["What services do you offer?", "How does deep cleaning work?", "Do you serve my area?"].map((q) => (
@@ -245,8 +245,7 @@ export default function AIChatWidget() {
             <div className="px-4 py-2 border-t border-border bg-muted/30">
               <button
                 onClick={() => { setOpen(false); navigate("/quote"); }}
-                className="w-full flex items-center justify-center gap-2 px-3 py-2 rounded-xl text-xs font-semibold text-white transition-all hover:scale-[1.02]"
-                style={{ background: "var(--gradient-gold)" }}
+                className="w-full flex items-center justify-center gap-2 px-3 py-2 rounded-xl text-xs font-semibold text-white transition-all hover:scale-[1.02] bg-primary shadow-xl"
               >
                 Get a Free Quote <ArrowRight className="w-3.5 h-3.5" />
               </button>

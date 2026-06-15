@@ -7,7 +7,7 @@ const sections = [
     number: "1",
     title: "Services",
     content:
-      "Navy Cleaning Solutions provides professional cleaning services as described on our Site. Specific terms for individual services may be provided at the time of booking.",
+      "CNA MAIDPRO provides professional cleaning services as described on our Site. Specific terms for individual services may be provided at the time of booking.",
   },
   {
     number: "2",
@@ -64,7 +64,7 @@ const sections = [
     number: "8",
     title: "Intellectual Property",
     content:
-      "All content on our Site, including text, images, logos, and designs, is the property of Navy Cleaning Solutions or licensed to us. Unauthorized use is strictly prohibited.",
+      "All content on our Site, including text, images, logos, and designs, is the property of CNA MAIDPRO or licensed to us. Unauthorized use is strictly prohibited.",
   },
   {
     number: "9",
@@ -125,7 +125,7 @@ export default function TermsOfService() {
           transition={{ duration: 0.5 }}
           className="text-muted-foreground leading-relaxed mb-12 text-base"
         >
-          Welcome to <span className="font-semibold text-foreground">Navy Cleaning Solutions!</span> These Terms of Service ("Terms") govern your access to and use of our website and any services provided by Navy Cleaning Solutions ("we," "our," or "us"). By accessing or using our Site and services, you agree to these Terms. If you do not agree, please do not use our Site or services.
+          Welcome to <span className="font-semibold text-foreground">CNA MAIDPRO!</span> These Terms of Service ("Terms") govern your access to and use of our website and any services provided by CNA MAIDPRO ("we," "our," or "us"). By accessing or using our Site and services, you agree to these Terms. If you do not agree, please do not use our Site or services.
         </motion.p>
 
         {/* Sections */}
@@ -178,17 +178,17 @@ export default function TermsOfService() {
         >
           Questions? Contact us at{" "}
           <a
-            href="tel:+18135202535"
+            href="tel:9782357033"
             className="text-primary hover:underline"
           >
-            (813) 520-2535
+            978.235.7033
           </a>{" "}
           or{" "}
           <a
-            href="mailto:wehomecleaning@gmail.com"
+            href="mailto:cnamaidprobos@gmail.com"
             className="text-primary hover:underline"
           >
-            wehomecleaning@gmail.com
+            cnamaidprobos@gmail.com
           </a>
         </motion.div>
       </div>

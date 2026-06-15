@@ -41,6 +41,7 @@ import Promotions from "./pages/Promotions";
 import ServiceAreasPage from "./pages/ServiceAreas";
 import Contact from "./pages/Contact";
 import Testimonials from "./pages/Testimonials";
+import ThankYou from "./pages/ThankYou";
 
 const queryClient = new QueryClient();
 
@@ -71,6 +72,7 @@ const App = () => (
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="/privacy-security" element={<PrivacySecurityPolicy />} />
             <Route path="/quote" element={<Quote />} />
+            <Route path="/thank-you" element={<ThankYou />} />
 
             {/* Admin routes */}
             <Route path="/admin/login" element={<AdminLogin />} />

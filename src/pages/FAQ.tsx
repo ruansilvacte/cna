@@ -1,11 +1,10 @@
 import { motion } from "framer-motion";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import FloatingSocial from "@/components/FloatingSocial";
+import FloatingCallButton from "@/components/FloatingCallButton";
 import SeoHead from "@/components/SeoHead";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { Phone } from "lucide-react";
-import faqBanner from "@/assets/faq-banner.jpg";
+import { Phone, HelpCircle, ArrowRight } from "lucide-react";
 
 const faqs = [
   {
@@ -26,7 +25,7 @@ const faqs = [
   {
     question: "Do I need to provide any supplies?",
     answer:
-      "Clients are kindly asked to provide paper towels and trash bags. All other cleaning supplies and equipment are provided by WeHome Cleaning. If you prefer the use of a specific product in your home, we are happy to accommodate as long as the product is provided upon arrival.",
+      "Clients are kindly asked to provide paper towels and trash bags. All other cleaning supplies and equipment are provided by CNA MAIDPRO. If you prefer the use of a specific product in your home, we are happy to accommodate as long as the product is provided upon arrival.",
   },
   {
     question: "Do you clean homes with pets?",
@@ -36,152 +35,136 @@ const faqs = [
   {
     question: "Do you take photos or videos during the service?",
     answer:
-      "To document cleaning results and maintain service quality, WeHome Cleaning may occasionally take before and after photos or videos for internal or marketing purposes. No personal or identifying information will ever be shared, including faces, family photos, documents, addresses, or sensitive details. Content will focus exclusively on the cleaning results. If you prefer not to allow photos or videos during your service, simply let our team know in advance.",
+      "To document cleaning results and maintain service quality, CNA MAIDPRO may occasionally take before and after photos or videos for internal or marketing purposes. No personal or identifying information will ever be shared. Content will focus exclusively on the cleaning results. If you prefer not to allow photos or videos, simply let our team know in advance.",
   },
   {
     question: "How is my cleaning team assigned?",
     answer:
-      "Team members may occasionally vary based on scheduling and availability. All WeHome Cleaning professionals follow the same training and quality standards to ensure a consistent experience at every visit.",
+      "Team members may occasionally vary based on scheduling and availability. All CNA MAIDPRO professionals follow the same training and quality standards to ensure a consistent experience at every visit.",
   },
   {
     question: "How should I prepare my home before the visit?",
     answer:
-      "To allow our team to focus entirely on the cleaning itself, we kindly ask that excessive clutter, clothing, toys, and personal items are picked up prior to arrival. Organization and decluttering services are not included unless previously requested.",
-  },
-  {
-    question: "What about closed rooms or restricted areas?",
-    answer:
-      "For privacy and security reasons, rooms, closets, or areas with closed doors at the time of service will be considered intentionally unavailable and will not be cleaned during the appointment.",
+      "To allow our team to focus entirely on the cleaning itself, we kindly ask that excessive clutter, clothing, toys, and personal items are picked up prior to arrival. Organization and decluttering services are not included.",
   },
   {
     question: "What are your scheduling hours?",
     answer:
-      "Administrative support is available Monday–Friday from 9:00 AM to 5:00 PM. Cleaning appointments are scheduled based on route availability and service type. Weekend appointments are available upon request.",
+      "Administrative support is available Monday to Friday from 9:00 AM to 5:00 PM. Cleaning appointments are scheduled based on route availability and service type.",
   },
   {
     question: "Do your cleaners use tall ladders?",
     answer:
-      "For safety and insurance compliance, our team is only permitted to use 2 step ladders/stools while performing cleaning services. We appreciate your understanding as we prioritize a safe and fully insured work environment.",
+      "For safety and insurance compliance, our team is only permitted to use 2 step ladders/stools while performing cleaning services.",
   },
   {
     question: "Do you have a referral program?",
     answer:
-      "We truly appreciate referrals from our clients. As a thank you, clients receive a $50 service credit when a referred client starts recurring cleaning services with WeHome Cleaning. There is no limit to referrals, and credits may be applied toward future services.",
+      "Yes! As a thank you, clients receive a $50 service credit when a referred client starts recurring cleaning services with CNA MAIDPRO. There is no limit to referrals.",
   },
 ];
+
+const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
 export default function FAQ() {
   return (
     <div className="min-h-screen bg-background">
-      <SeoHead slug="/faq" fallbackTitle="FAQ, WeHome Cleaning" />
+      <SeoHead slug="/faq" fallbackTitle="Frequently Asked Questions | CNA MAIDPRO" />
       <Header />
 
-      {/* Hero Banner */}
-      <section className="relative w-full h-[60vh] min-h-[400px] overflow-hidden">
-        <img
-          src={faqBanner}
-          alt="Clean modern home interior"
-          className="absolute inset-0 w-full h-full object-cover"
-          width={1920}
-          height={640}
-        />
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              "linear-gradient(180deg, hsl(30 10% 8% / 0.75) 0%, hsl(30 10% 12% / 0.6) 60%, hsl(30 10% 8% / 0.8) 100%)",
-          }}
-        />
-        <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-5">
-          <motion.span
-            className="text-[10px] md:text-xs font-bold uppercase tracking-[0.3em] mb-3"
-            style={{ color: "hsl(var(--brand-pink))", fontFamily: "var(--font-heading)" }}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            Frequently Asked Questions
-          </motion.span>
-          <motion.h1
-            className="text-3xl md:text-5xl font-extrabold text-white leading-tight"
-            style={{ fontFamily: "var(--font-heading)" }}
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-          >
-            Got questions?{" "}
-            <span style={{ color: "hsl(var(--brand-pink))" }}>We've got answers.</span>
-          </motion.h1>
-          <motion.p
-            className="text-sm md:text-base mt-3 max-w-lg"
-            style={{ color: "hsl(0 0% 80%)" }}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.25 }}
-          >
-            Everything you need to know about our cleaning services.
-          </motion.p>
+      {/* Hero */}
+      <section className="relative pt-40 pb-20 px-6 md:px-10 bg-white overflow-hidden">
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full opacity-[0.03] blur-3xl pointer-events-none" style={{ background: "hsl(var(--primary))" }} />
+        
+        <div className="max-w-4xl mx-auto relative z-10 text-center">
+            <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="section-label text-accent mb-4">Support & Guidance</motion.p>
+            <motion.h1 
+                initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease }}
+                className="heading-display text-primary mb-6" 
+                style={{ fontSize: "clamp(2.5rem, 5vw, 4.5rem)" }}
+            >
+                Common <span className="text-secondary-blue italic">Questions.</span>
+            </motion.h1>
+            <p className="text-muted-foreground text-lg leading-relaxed max-w-2xl mx-auto">
+                Everything you need to know about our premium cleaning standards, policies, and how we care for your home.
+            </p>
         </div>
       </section>
 
       {/* FAQ Accordion */}
-      <section className="w-full py-16 md:py-24 px-4 sm:px-6">
+      <section className="w-full pb-24 px-6 md:px-10">
         <div className="max-w-3xl mx-auto">
-          <Accordion type="single" collapsible defaultValue="faq-0" className="space-y-3">
+          <Accordion type="single" collapsible className="space-y-4">
             {faqs.map((faq, i) => (
-              <AccordionItem
+              <motion.div
                 key={i}
-                value={`faq-${i}`}
-                className="rounded-xl border border-border/60 bg-card px-5 shadow-sm hover:shadow-md transition-shadow duration-200"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.05 }}
               >
-                <AccordionTrigger className="text-sm md:text-base font-semibold text-foreground hover:no-underline py-4">
-                  {faq.question}
-                </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground text-sm leading-relaxed pb-4">
-                  {faq.answer}
-                </AccordionContent>
-              </AccordionItem>
+                <AccordionItem
+                  value={`faq-${i}`}
+                  className="rounded-[2rem] border border-border/60 bg-white px-8 shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden"
+                >
+                  <AccordionTrigger className="text-base md:text-lg font-bold text-primary hover:no-underline py-6 text-left" style={{ fontFamily: "var(--font-heading)" }}>
+                    {faq.question}
+                  </AccordionTrigger>
+                  <AccordionContent className="text-muted-foreground text-sm md:text-base leading-relaxed pb-6">
+                    {faq.answer}
+                  </AccordionContent>
+                </AccordionItem>
+              </motion.div>
             ))}
           </Accordion>
 
-          {/* CTA */}
+          {/* Still Have Questions? */}
           <motion.div
-            className="mt-16 rounded-3xl overflow-hidden text-center"
-            style={{ background: "var(--gradient-blue)" }}
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            className="mt-20 p-10 md:p-14 rounded-[3rem] text-center bg-secondary/50 border border-border/40"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
           >
-            <div className="p-8 md:p-16 flex flex-col items-center gap-5">
-              <span className="text-[11px] font-bold uppercase tracking-[0.3em]" style={{ color: "hsl(var(--brand-pink))" }}>
-                Still Have Questions?
-              </span>
-              <h3
-                className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-white leading-tight max-w-lg"
-                style={{ fontFamily: "var(--font-heading)" }}
-              >
-                Let's make your property shine.
-              </h3>
-              <p className="text-white/80 text-sm md:text-base max-w-md leading-relaxed">
-                Request your personalized quote in minutes. Every service is tailored to your property.
-              </p>
-              <motion.a
-                href="/quote"
-                className="mt-2 inline-flex items-center gap-2 px-8 py-3 rounded-full text-[13px] font-bold uppercase tracking-wider transition-all duration-300 hover:scale-105"
-                style={{ background: "hsl(var(--brand-pink))", color: "hsl(var(--primary))" }}
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.97 }}
-              >
-                <Phone className="w-4 h-4" />
-                Get a Free Quote
-              </motion.a>
+            <div className="w-14 h-14 rounded-2xl bg-white shadow-sm flex items-center justify-center text-primary mx-auto mb-8">
+               <HelpCircle className="w-7 h-7" strokeWidth={1.5} />
+            </div>
+            <h3 className="text-2xl font-bold text-primary mb-4" style={{ fontFamily: "var(--font-heading)" }}>Still have questions?</h3>
+            <p className="text-muted-foreground mb-10 max-w-md mx-auto italic">
+               "We're here to help you find the perfect cleaning plan for your family's needs."
+            </p>
+            <div className="flex flex-wrap justify-center gap-4">
+               <a href="/contact" className="btn-primary">Message Us</a>
+               <a href="tel:9782357033" className="flex items-center gap-2 px-8 py-4 rounded-full font-bold text-sm text-primary hover:bg-secondary transition-all">
+                  <Phone className="w-4 h-4" /> 978.235.7033
+               </a>
             </div>
           </motion.div>
         </div>
       </section>
 
+      {/* Final CTA */}
+      <section className="pb-24 px-6 md:px-10">
+        <motion.div
+          className="max-w-5xl mx-auto rounded-[3.5rem] p-12 md:p-20 text-center text-white relative overflow-hidden shadow-2xl"
+          style={{ background: "var(--gradient-blue)" }}
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+        >
+          <div className="relative z-10">
+            <h2 className="heading-display mb-8" style={{ fontSize: "clamp(2rem, 5vw, 3.5rem)" }}>
+               Ready for a <br />
+               <em className="italic" style={{ color: "hsl(var(--accent-light))" }}>MaidPro clean?</em>
+            </h2>
+            <div className="flex flex-wrap justify-center gap-6">
+              <a href="/quote" className="btn-primary bg-white text-primary hover:bg-white/95 px-12">Get Free Estimate <ArrowRight className="w-4 h-4 ml-2" /></a>
+            </div>
+          </div>
+        </motion.div>
+      </section>
+
       <Footer />
-      <FloatingSocial />
+      <FloatingCallButton />
     </div>
   );
 }

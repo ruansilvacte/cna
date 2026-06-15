@@ -51,9 +51,9 @@ const DEFAULTS: Record<string, string> = {
   home_hero_title_line1: "Professional",
   home_hero_title_line2: "Cleaning Services",
   home_hero_title_line3: "For Every Space",
-  home_hero_description: "Let WeHome Cleaning transform your home, office, or Airbnb into a pristine haven. Discover our tailored solutions today!",
+  home_hero_description: "Let CNA MAIDPRO transform your home, office, or Airbnb into a pristine haven. Discover our tailored solutions today!",
   home_about_title: "Who We Are",
-  home_about_text_1: "WeHome Cleaning is a professional cleaning company based in Charlotte, Florida, recognized for operational excellence and commitment to elevated quality standards. Founded and our model is driven by efficiency, consistency, and rigorous attention to detail, delivering superior results every time.",
+  home_about_text_1: "CNA MAIDPRO is a professional cleaning company recognized for operational excellence and commitment to elevated quality standards. Our model is driven by efficiency, consistency, and rigorous attention to detail, delivering superior results every time.",
   home_about_image_1: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80",
   // Why It Matters
   home_why_section_title: "More Than a Cleaning Service",
@@ -65,7 +65,7 @@ const DEFAULTS: Record<string, string> = {
   home_why_description_2: "One of the biggest frustrations in cleaning services is inconsistency. That's why we've built our operation around repeatable systems and detailed checklists tailored for each type of service.",
   home_why_tagline_2: "Consistent results, every single time",
   home_why_title_3: "Peace of Mind",
-  home_why_description_3: "Our goal is simple: remove the stress from your routine. With WeHome Cleaning, you don't need to double-check, follow up, or worry about the outcome.",
+  home_why_description_3: "Our goal is simple: remove the stress from your routine. With CNA MAIDPRO, you don't need to double-check, follow up, or worry about the outcome.",
   home_why_tagline_3: "Focus on what matters, we handle the rest",
   // Bento Grid
   home_bento_image_1: "/images/clean-floor.png",
@@ -78,31 +78,31 @@ const DEFAULTS: Record<string, string> = {
   home_services_eyebrow: "✦ What We Offer",
   home_services_title_part1: "Professional services for",
   home_services_title_part2: "every need",
-  home_card_pitch_airbnb: "Guest-ready turnovers that protect your 5-star rating and Superhost status.",
+  home_card_pitch_airbnb: "Guest ready turnovers that protect your 5 star rating and Superhost status.",
   home_card_cta_airbnb: "Learn more",
   home_card_pitch_residential: "A pristine home you'll genuinely love coming back to, every single time.",
   home_card_cta_residential: "Learn more",
   home_card_pitch_commercial: "Spotless offices and storefronts that quietly elevate your brand.",
   home_card_cta_commercial: "Learn more",
-  home_card_pitch_deep: "Top-to-bottom reset that genuinely changes how your space feels.",
+  home_card_pitch_deep: "Top to bottom reset that genuinely changes how your space feels.",
   home_card_cta_deep: "Learn more",
-  home_card_pitch_post_construction: "Move-in ready handover after every renovation, final-walkthrough quality.",
+  home_card_pitch_post_construction: "Move in ready handover after every renovation, final walkthrough quality.",
   home_card_cta_post_construction: "Learn more",
   home_card_pitch_platform: "One trusted partner connected across Turno, Nextdoor and your hosting tools.",
   home_card_cta_platform: "Get a quote",
   // Testimonials
   home_testimonial_name_1: "Marcus T.", home_testimonial_location_1: "21 February 2025",
-  home_testimonial_text_1: "WeHome Cleaning transformed our Airbnb. Every guest comments on how spotless it is. Our reviews went from 4.2 to 4.9 stars since hiring them!",
+  home_testimonial_text_1: "CNA MAIDPRO transformed our Airbnb. Every guest comments on how spotless it is. Our reviews went from 4.2 to 4.9 stars since hiring them!",
   home_testimonial_name_2: "Sarah L.", home_testimonial_location_2: "20 February 2025",
-  home_testimonial_text_2: "Our team are incredible. They clean our vacation rental between every guest and never miss a detail. Truly guest-ready every time.",
+  home_testimonial_text_2: "Our team are incredible. They clean our vacation rental between every guest and never miss a detail. Truly guest ready every time.",
   home_testimonial_name_3: "Jennifer K.", home_testimonial_location_3: "20 February 2025",
-  home_testimonial_text_3: "We manage 12 short-term rentals and WeHome Cleaning handles all of them. The consistency across properties is remarkable.",
+  home_testimonial_text_3: "We manage 12 short-term rentals and CNA MAIDPRO handles all of them. The consistency across properties is remarkable.",
   home_testimonial_name_4: "David R.", home_testimonial_location_4: "18 February 2025",
-  home_testimonial_text_4: "The 24-hour guarantee sealed the deal for me. One time I had a concern, they came back same day and fixed it.",
+  home_testimonial_text_4: "The 24 hour guarantee sealed the deal for me. One time I had a concern, they came back same day and fixed it.",
   home_testimonial_name_5: "Michael C.", home_testimonial_location_5: "15 February 2025",
   home_testimonial_text_5: "Their structured process is what sets them apart. You can tell they have checklists, nothing gets missed.",
   home_testimonial_name_6: "Amanda W.", home_testimonial_location_6: "12 February 2025",
-  home_testimonial_text_6: "After our renovation, WeHome Cleaning did the post-construction cleanup. They removed every speck of dust and debris.",
+  home_testimonial_text_6: "After our renovation, CNA MAIDPRO did the post construction cleanup. They removed every speck of dust and debris.",
   // Font scales
   home_font_scale_hero: "1",
   home_font_scale_about: "1",
@@ -243,7 +243,7 @@ export default function HomeEditor() {
           <AccordionContent className="px-5 pb-5 space-y-4">
             <TextField k="home_hero_subtitle" label="Subtitle" />
             <TextField k="home_hero_title_line1" label="Title, Line 1 (white)" />
-            <TextField k="home_hero_title_line2" label="Title, Line 2 (gold)" />
+            <TextField k="home_hero_title_line2" label="Title, Line 2 (accent)" />
             <TextField k="home_hero_title_line3" label="Title, Line 3 (white)" />
             <TextField k="home_hero_description" label="Description" multiline />
             <FontScale k="home_font_scale_hero" label="Font size, Hero" />
@@ -308,8 +308,8 @@ export default function HomeEditor() {
               <h4 className="text-sm font-semibold text-foreground mb-2">Section header</h4>
               <div className="space-y-3">
                 <TextField k="home_services_eyebrow" label="Eyebrow (small label)" />
-                <TextField k="home_services_title_part1" label="Title, first part (dark)" />
-                <TextField k="home_services_title_part2" label="Title, highlighted part (gold)" />
+                <TextField k="home_services_title_part1" label="Title, first part (primary)" />
+                <TextField k="home_services_title_part2" label="Title, highlighted part (accent)" />
               </div>
             </div>
 
@@ -318,11 +318,11 @@ export default function HomeEditor() {
               <p className="text-xs text-muted-foreground mb-3">Edit the mini-pitch shown when the user hovers over a card and the button label.</p>
               <div className="space-y-3">
                 {[
-                  { key: "airbnb", label: "Airbnb / Short-Term Rental" },
+                  { key: "airbnb", label: "Airbnb / Short Term Rental" },
                   { key: "residential", label: "Residential Cleaning" },
                   { key: "commercial", label: "Commercial Cleaning" },
                   { key: "deep", label: "Deep Cleaning" },
-                  { key: "post_construction", label: "Post-Construction Cleaning" },
+                  { key: "post_construction", label: "Post Construction Cleaning" },
                   { key: "platform", label: "Platform Integrations" },
                 ].map((c) => (
                   <Card key={c.key} className="border-border/30">

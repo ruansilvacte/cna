@@ -2,109 +2,131 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600;1,700&family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=DM+Sans:wght@300;400;500;600;700&display=swap');
 
 @layer base {
   :root {
-    /* WeHome Cleaning — Deep Navy + Luxury Gold palette */
-    --background: 40 30% 99%;
-    --foreground: 216 52% 14%;
+    /* ============================================
+       CNA MAIDPRO — Brand Color System
+       Built from the logo: Deep Navy + Sage Green
+       ============================================ */
+
+    /* Core semantic tokens */
+    --background: 40 18% 97%;        /* Warm White / Barely there cream */
+    --foreground: 218 42% 12%;       /* Deep Navy text */
 
     --card: 0 0% 100%;
-    --card-foreground: 216 52% 14%;
+    --card-foreground: 218 42% 12%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 216 52% 14%;
+    --popover-foreground: 218 42% 12%;
 
-    /* Deep elegant navy blue (from logo wordmark) */
-    --primary: 216 60% 18%;
-    --primary-foreground: 0 0% 100%;
+    /* PRIMARY: Deep Navy Blue — from CNA logo background */
+    --primary: 218 52% 22%;
+    --primary-foreground: 40 18% 97%;
 
-    /* Soft warm neutral */
-    --secondary: 40 35% 96%;
-    --secondary-foreground: 216 60% 18%;
+    /* SECONDARY: Sage / Natural Green — from CNA logo leaf icon */
+    --secondary: 148 32% 52%;
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 38 20% 95%;
-    --muted-foreground: 216 15% 38%;
+    /* ACCENT: Soft Mint Green — lighter sage for highlights */
+    --accent: 148 36% 46%;
+    --accent-foreground: 0 0% 100%;
 
-    /* Luxury gold accent (from logo roof) */
-    --accent: 42 65% 55%;
-    --accent-foreground: 216 60% 18%;
+    --muted: 210 15% 94%;
+    --muted-foreground: 218 22% 45%;
 
-    --destructive: 0 72% 50%;
+    --destructive: 0 72% 51%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 38 20% 90%;
-    --input: 38 20% 90%;
-    --ring: 42 65% 55%;
+    --border: 218 18% 88%;
+    --input: 218 18% 88%;
+    --ring: 218 52% 22%;
 
     --radius: 1rem;
 
-    --font-heading: 'Playfair Display', serif;
-    --font-body: 'Inter', sans-serif;
-    --brand-brown: 216 60% 18%;
+    /* ============================================
+       BRAND-SPECIFIC TOKENS
+       ============================================ */
 
-    /* Premium brand gradients — navy + gold */
-    --brand-blue: 216 60% 18%;
-    --brand-blue-soft: 216 45% 32%;
-    --brand-pink: 42 65% 55%;
-    --brand-pink-soft: 42 70% 78%;
-    --brand-blush: 40 50% 96%;
+    /* Named palette from the logo */
+    --cna-navy:       218 52% 22%;    /* Deep Navy Blue — primary */
+    --cna-navy-dark:  218 60% 14%;    /* Darker navy for deep sections */
+    --cna-navy-light: 218 40% 32%;    /* Lighter navy */
+    --cna-sage:       148 32% 52%;    /* Sage Green — logo leaf */
+    --cna-sage-dark:  148 40% 38%;    /* Deep sage */
+    --cna-sage-light: 148 28% 68%;    /* Light sage for accents */
+    --cna-sage-pale:  148 22% 92%;    /* Very pale sage bg tint */
+    --cna-cream:       40 18% 97%;    /* Warm White background */
+    --cna-beige:       36 20% 92%;    /* Soft Beige */
+    --cna-gray:       210 12% 88%;    /* Light Neutral Gray */
+    --cna-gray-mid:   218 16% 56%;    /* Mid gray for body text */
+    --cna-charcoal:   218 35% 18%;    /* Near black for headings */
 
-    --gradient-hero: linear-gradient(135deg, hsl(40 35% 97%) 0%, hsl(38 25% 98%) 50%, hsl(42 40% 94%) 100%);
-    --gradient-pink: linear-gradient(135deg, hsl(42 65% 55%), hsl(38 70% 62%));
-    --gradient-blue: linear-gradient(135deg, hsl(216 60% 18%), hsl(216 45% 32%));
-    --gradient-gold: linear-gradient(135deg, hsl(42 65% 55%), hsl(38 70% 62%));
-    --gradient-gold-card: linear-gradient(135deg, hsl(38 70% 62%), hsl(42 65% 55%));
+    /* Typography */
+    --font-heading: 'Playfair Display', Georgia, serif;
+    --font-body: 'DM Sans', system-ui, sans-serif;
 
-    --shadow-soft: 0 10px 40px -12px hsl(216 60% 18% / 0.08);
-    --shadow-pink: 0 20px 50px -20px hsl(42 65% 45% / 0.25);
-    --shadow-luxe: 0 30px 80px -30px hsl(216 60% 18% / 0.18);
+    /* ============================================
+       GRADIENTS — Natural, Fresh, Clean
+       ============================================ */
+    --gradient-hero:   linear-gradient(135deg, hsl(218 60% 12%) 0%, hsl(218 52% 20%) 55%, hsl(148 38% 22%) 100%);
+    --gradient-navy:   linear-gradient(135deg, hsl(218 60% 14%), hsl(218 50% 28%));
+    --gradient-sage:   linear-gradient(135deg, hsl(148 36% 38%), hsl(148 30% 52%));
+    --gradient-warm:   linear-gradient(160deg, hsl(40 18% 97%) 0%, hsl(148 22% 94%) 100%);
+    --gradient-subtle: linear-gradient(180deg, hsl(40 18% 97%) 0%, hsl(148 20% 95%) 100%);
+    --gradient-section: linear-gradient(160deg, hsl(218 30% 96%) 0%, hsl(148 22% 95%) 100%);
+    --gradient-dark:   linear-gradient(135deg, hsl(218 60% 10%) 0%, hsl(218 52% 18%) 60%, hsl(148 40% 20%) 100%);
 
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 30 10% 15%;
+    /* ============================================
+       SHADOWS — Soft, natural tones
+       ============================================ */
+    --shadow-soft:  0 4px 24px -6px hsl(218 52% 22% / 0.10);
+    --shadow-navy:  0 12px 40px -10px hsl(218 52% 22% / 0.22);
+    --shadow-sage:  0 8px 32px -8px hsl(148 36% 46% / 0.18);
+    --shadow-card:  0 2px 12px -4px hsl(218 52% 22% / 0.06), 0 8px 28px -8px hsl(218 52% 22% / 0.08);
+    --shadow-luxe:  0 24px 80px -20px hsl(218 52% 20% / 0.20);
+
+    /* Sidebar tokens */
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 218 42% 12%;
+    --sidebar-primary: 218 52% 22%;
     --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 40 8% 95%;
-    --sidebar-accent-foreground: 30 10% 15%;
-    --sidebar-border: 35 13% 91%;
-    --sidebar-ring: 350 62% 72%;
+    --sidebar-accent: 148 22% 94%;
+    --sidebar-accent-foreground: 218 52% 22%;
+    --sidebar-border: 218 18% 88%;
+    --sidebar-ring: 218 52% 22%;
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --background: 218 52% 8%;
+    --foreground: 40 18% 94%;
+    --card: 218 48% 10%;
+    --card-foreground: 40 18% 94%;
+    --popover: 218 48% 10%;
+    --popover-foreground: 40 18% 94%;
+    --primary: 148 32% 58%;
+    --primary-foreground: 218 60% 10%;
+    --secondary: 218 35% 18%;
+    --secondary-foreground: 40 18% 94%;
+    --muted: 218 35% 16%;
+    --muted-foreground: 218 20% 58%;
+    --accent: 148 28% 52%;
+    --accent-foreground: 218 60% 10%;
+    --destructive: 0 62% 38%;
+    --destructive-foreground: 40 18% 94%;
+    --border: 218 35% 20%;
+    --input: 218 35% 20%;
+    --ring: 148 32% 58%;
+    --sidebar-background: 218 52% 8%;
+    --sidebar-foreground: 40 18% 94%;
+    --sidebar-primary: 148 32% 58%;
+    --sidebar-primary-foreground: 218 60% 10%;
+    --sidebar-accent: 218 35% 16%;
+    --sidebar-accent-foreground: 40 18% 94%;
+    --sidebar-border: 218 35% 18%;
+    --sidebar-ring: 148 32% 58%;
   }
-}
-
-@keyframes progress {
-  from { width: 0%; }
-  to { width: 100%; }
 }
 
 @layer base {
@@ -112,18 +134,310 @@
     @apply border-border;
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     @apply bg-background text-foreground;
     font-family: var(--font-body);
-    font-weight: 300;
+    font-weight: 400;
+    color: hsl(var(--cna-charcoal));
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: hsl(var(--cna-cream));
   }
 
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-heading);
+    color: hsl(var(--cna-navy));
   }
 }
 
-/* Tiptap editor styles */
+/* ============================================
+   TYPOGRAPHY SYSTEM
+   ============================================ */
+
+.section-label {
+  font-family: var(--font-body);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: hsl(var(--cna-sage));
+}
+
+.heading-display {
+  font-family: var(--font-heading);
+  line-height: 1.06;
+  letter-spacing: -0.01em;
+  font-weight: 700;
+  color: hsl(var(--cna-navy));
+}
+
+.body-large {
+  font-family: var(--font-body);
+  font-size: 1.125rem;
+  line-height: 1.75;
+  color: hsl(var(--cna-gray-mid));
+}
+
+/* ============================================
+   BUTTON SYSTEM — Navy + Sage, NO gold
+   ============================================ */
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.9rem 2rem;
+  border-radius: 9999px;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.8125rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: white;
+  background: hsl(var(--cna-navy));
+  box-shadow: 0 4px 20px -4px hsl(var(--cna-navy) / 0.40);
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  cursor: pointer;
+  border: none;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  background: hsl(var(--cna-navy-dark));
+  box-shadow: 0 8px 30px -6px hsl(var(--cna-navy) / 0.45);
+}
+
+.btn-sage {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.9rem 2rem;
+  border-radius: 9999px;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.8125rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: white;
+  background: hsl(var(--cna-sage));
+  box-shadow: 0 4px 20px -4px hsl(var(--cna-sage) / 0.35);
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  cursor: pointer;
+}
+
+.btn-sage:hover {
+  transform: translateY(-2px);
+  background: hsl(var(--cna-sage-dark));
+  box-shadow: 0 8px 28px -6px hsl(var(--cna-sage) / 0.45);
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.875rem 2rem;
+  border-radius: 9999px;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.8125rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: hsl(var(--cna-navy));
+  background: transparent;
+  border: 2px solid hsl(var(--cna-navy) / 0.25);
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  cursor: pointer;
+}
+
+.btn-outline:hover {
+  border-color: hsl(var(--cna-navy));
+  background: hsl(var(--cna-navy) / 0.05);
+  transform: translateY(-2px);
+}
+
+.btn-outline-white {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.875rem 2rem;
+  border-radius: 9999px;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.8125rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: white;
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.30);
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  cursor: pointer;
+}
+
+.btn-outline-white:hover {
+  border-color: rgba(255, 255, 255, 0.70);
+  background: rgba(255, 255, 255, 0.10);
+  transform: translateY(-2px);
+}
+
+/* ============================================
+   CARDS & SURFACES
+   ============================================ */
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.10);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.glass-dark {
+  background: hsl(218 55% 12% / 0.70);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.sage-bg-card {
+  background: hsl(var(--cna-sage-pale));
+  border: 1px solid hsl(var(--cna-sage-light) / 0.25);
+}
+
+/* ============================================
+   SECTION UTILITIES
+   ============================================ */
+
+.section-divider {
+  width: 48px;
+  height: 3px;
+  border-radius: 9999px;
+  background: linear-gradient(90deg, hsl(var(--cna-sage)), hsl(var(--cna-navy)));
+}
+
+/* Grain texture overlay */
+.grain-overlay::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.4;
+}
+
+/* ============================================
+   MARQUEE ANIMATION
+   ============================================ */
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 32s linear infinite;
+}
+
+.marquee-container {
+  overflow: hidden;
+}
+
+.trustbar-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  white-space: nowrap;
+}
+
+/* ============================================
+   FLOATING CTA BUTTON
+   ============================================ */
+
+.floating-cta {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 45;
+}
+
+@media (min-width: 768px) {
+  .floating-cta {
+    bottom: 2rem;
+    right: 2rem;
+  }
+}
+
+/* ============================================
+   CUSTOM SCROLLBAR
+   ============================================ */
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: hsl(var(--cna-beige));
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--cna-sage) / 0.35);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--cna-sage) / 0.55);
+}
+
+/* ============================================
+   MICRO ANIMATIONS
+   ============================================ */
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes borderGlow {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+.border-glow {
+  animation: borderGlow 3s ease-in-out infinite;
+}
+
+/* Sage text gradient shimmer */
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+.shimmer-text {
+  background: linear-gradient(90deg, hsl(var(--cna-navy)) 0%, hsl(var(--cna-sage)) 50%, hsl(var(--cna-navy)) 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 5s linear infinite;
+}
+
+/* ============================================
+   TIPTAP EDITOR STYLES
+   ============================================ */
+
 .ProseMirror {
   min-height: 300px;
   padding: 1rem;
@@ -137,15 +451,14 @@
 .ProseMirror hr { border-color: hsl(var(--border)); margin: 1rem 0; }
 .ProseMirror img { max-width: 100%; border-radius: 0.75rem; }
 
-/* Blog post content images */
-.prose img {
+/* Blog content */
+.prose img, .blog-content img {
   max-width: 90%;
   border-radius: 1rem;
   margin: 1.5rem auto;
   display: block;
 }
 
-/* Blog content - renders HTML/CSS from TinyMCE */
 .blog-content {
   line-height: 1.8;
   color: hsl(var(--muted-foreground));
@@ -154,7 +467,7 @@
 }
 .blog-content h1, .blog-content h2, .blog-content h3, .blog-content h4 {
   font-family: var(--font-heading);
-  color: hsl(var(--foreground));
+  color: hsl(var(--cna-navy));
   margin-top: 1.5rem;
   margin-bottom: 0.75rem;
   font-weight: 700;
@@ -166,20 +479,14 @@
 .blog-content ul, .blog-content ol { padding-left: 1.5rem; margin: 0.75rem 0; }
 .blog-content li { margin: 0.25rem 0; }
 .blog-content blockquote {
-  border-left: 3px solid hsl(var(--border));
+  border-left: 3px solid hsl(var(--cna-sage));
   padding-left: 1rem;
   margin: 1rem 0;
   font-style: italic;
   color: hsl(var(--muted-foreground));
 }
-.blog-content img {
-  max-width: 100%;
-  border-radius: 0.75rem;
-  margin: 1.5rem auto;
-  display: block;
-}
 .blog-content a {
-  color: hsl(var(--primary));
+  color: hsl(var(--cna-sage-dark));
   text-decoration: underline;
 }
 .blog-content table {

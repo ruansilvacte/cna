@@ -12,16 +12,16 @@ import servicePlatform from "@/assets/service-platform.jpg";
 
 const services = [
   {
-    title: "Airbnb / Short-Term Rental Cleaning",
+    title: "Airbnb / Short Term Rental Cleaning",
     key: "airbnb",
     href: "/services/airbnb-short-term-rental",
-    defaultPitch: "Guest-ready turnovers that protect your 5-star rating and Superhost status.",
+    defaultPitch: "Guest ready turnovers that protect your 5 star rating and Superhost status.",
     defaultCta: "Learn more",
     badge: "MOST BOOKED",
     image: serviceAirbnb,
     items: [
-      "Guest-ready turnovers, every checkout",
-      "Detail-obsessed staging for 5-star reviews",
+      "Guest ready turnovers, every checkout",
+      "Detail-obsessed staging for 5 star reviews",
       "Fresh linens, restocked essentials, perfect presentation",
       "Same crew, same checklist, same standard",
       "Built to protect your rating and Superhost status",
@@ -36,8 +36,8 @@ const services = [
     defaultCta: "Learn more",
     image: serviceResidential,
     items: [
-      "Full-home clean across every room you actually use",
-      "Weekly, bi-weekly, monthly, or one-time when you need it",
+      "Full home clean across every room you actually use",
+      "Weekly, biweekly, monthly, or one-time when you need it",
       "Surfaces sanitized, floors detailed, dust removed for real",
       "Calm, organized spaces that feel genuinely fresh",
       "Same trusted team, no rotating strangers",
@@ -64,11 +64,11 @@ const services = [
     title: "Deep Cleaning",
     key: "deep",
     href: "/services/deep-cleaning",
-    defaultPitch: "Top-to-bottom reset that genuinely changes how your space feels.",
+    defaultPitch: "Top to bottom reset that genuinely changes how your space feels.",
     defaultCta: "Learn more",
     image: serviceDeepCleaning,
     items: [
-      "Top-to-bottom reset that reaches every overlooked corner",
+      "Top to bottom reset that reaches every overlooked corner",
       "Baseboards, vents, grout, behind appliances, all in",
       "Deep sanitization that genuinely changes how your home feels",
       "The perfect first clean before going on a recurring plan",
@@ -77,18 +77,18 @@ const services = [
     note: "When 'a quick clean' just won't cut it",
   },
   {
-    title: "Post-Construction Cleaning",
+    title: "Post Construction Cleaning",
     key: "post_construction",
     href: "/services/post-construction-cleaning",
-    defaultPitch: "Move-in ready handover after every renovation, final-walkthrough quality.",
+    defaultPitch: "Move in ready handover after every renovation, final walkthrough quality.",
     defaultCta: "Learn more",
     image: servicePostConstruction,
     items: [
       "Construction dust and debris fully removed, not just wiped",
       "Detailed post-reno cleaning across every surface",
-      "Polished finishes, spotless windows, ready-to-show feel",
-      "Move-in ready handover for owners or buyers",
-      "Final-walkthrough quality, every single time",
+      "Polished finishes, spotless windows, ready to show feel",
+      "Move in ready handover for owners or buyers",
+      "Final walkthrough quality, every single time",
     ],
     note: "Loved by builders, investors and homeowners",
   },
@@ -142,8 +142,7 @@ export default function ServiceChecklistCards() {
             transition={{ duration: 0.7 }}
           >
             <p
-              className="text-[10px] font-semibold uppercase tracking-[0.3em] mb-5"
-              style={{ color: "hsl(var(--brand-pink))" }}
+              className="text-[10px] font-semibold uppercase tracking-[0.3em] mb-5 text-accent"
             >
               {eyebrow}
             </p>
@@ -152,7 +151,7 @@ export default function ServiceChecklistCards() {
               style={{ fontFamily: "var(--font-heading)", color: "hsl(var(--primary))" }}
             >
               {titleA}{" "}
-              <em className="italic font-normal" style={{ color: "hsl(var(--brand-pink))" }}>
+              <em className="italic font-normal text-accent">
                 {titleB}
               </em>
             </h2>
@@ -203,7 +202,7 @@ export default function ServiceChecklistCards() {
                   {service.badge && (
                     <span
                       className="absolute top-4 right-4 text-[9px] font-semibold tracking-[0.2em] px-3 py-1.5 rounded-full text-white"
-                      style={{ background: "var(--gradient-pink)" }}
+                      style={{ background: "var(--gradient-green)" }}
                     >
                       {service.badge}
                     </span>
@@ -231,8 +230,7 @@ export default function ServiceChecklistCards() {
                     {service.items.slice(0, 4).map((item, j) => (
                       <div key={j} className="flex items-start gap-2.5">
                         <CheckCircle2
-                          className="w-4 h-4 mt-0.5 flex-shrink-0"
-                          style={{ color: "hsl(var(--brand-pink))" }}
+                          className="w-4 h-4 mt-0.5 flex-shrink-0 text-accent"
                         />
                         <span className="text-sm leading-snug" style={{ color: "hsl(var(--muted-foreground))" }}>
                           {item}
@@ -242,15 +240,15 @@ export default function ServiceChecklistCards() {
                   </div>
 
                   <p
-                    className="text-xs italic mt-auto pt-4 border-t w-full"
+                    className="text-xs italic mt-auto pt-4 border-t w-full text-accent"
                     style={{
-                      color: "hsl(var(--brand-pink))",
                       borderColor: "hsl(var(--border))",
                     }}
                   >
                     {service.note}
                   </p>
                 </div>
+
               </motion.div>
             );
           })}

@@ -1,151 +1,131 @@
 import { motion } from "framer-motion";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import FloatingSocial from "@/components/FloatingSocial";
+import FloatingCallButton from "@/components/FloatingCallButton";
 import SeoHead from "@/components/SeoHead";
-import { Gift, RefreshCw, Sparkles, ArrowRight } from "lucide-react";
+import { Gift, RefreshCw, Sparkles, ArrowRight, Tag } from "lucide-react";
 
 const promotions = [
   {
     icon: Gift,
     tag: "New Clients",
-    title: "First Cleaning Special",
-    description: "Experience our premium service at an introductory rate. First-time clients receive a special offer on their initial cleaning, because great impressions start with a clean space.",
+    title: "Introductory Care",
+    description: "Experience the CNA MAIDPRO standard with a special introductory rate for new families. Let us show you why we're Massachusetts' preferred choice.",
     cta: "Claim Offer",
   },
   {
     icon: RefreshCw,
     tag: "Recurring Plans",
-    title: "Recurring Service Savings",
-    description: "Lock in exclusive rates with a weekly, bi-weekly, or monthly plan. Recurring clients enjoy priority scheduling, consistent quality, and savings that add up over time.",
+    title: "Consistency Rewards",
+    description: "Lock in exclusive rates with weekly or biweekly plans. Peace of mind is even better when it comes with preferred pricing for our loyal clients.",
     cta: "Start Saving",
   },
   {
     icon: Sparkles,
     tag: "Referral",
-    title: "Refer a Friend",
-    description: "Love our service? Share it. When you refer a friend and they book, both of you receive a special reward. Quality cleaning deserves to be shared.",
-    cta: "Refer Now",
+    title: "Share the Shine",
+    description: "Refer a friend and both of you receive a $50 service credit. Good news travels fast, and quality cleaning is news worth sharing.",
+    cta: "Refer a Friend",
   },
 ];
 
-const containerVariants = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.15 } },
-};
-
-const cardVariants = {
-  hidden: { opacity: 0, y: 40, filter: "blur(6px)" },
-  visible: {
-    opacity: 1, y: 0, filter: "blur(0px)",
-    transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] },
-  },
-};
+const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
 export default function Promotions() {
   return (
     <div className="min-h-screen bg-background">
-      <SeoHead slug="/promotions" fallbackTitle="Promotions, WeHome Cleaning" />
+      <SeoHead slug="/promotions" fallbackTitle="Exclusive Offers | CNA MAIDPRO" />
       <Header />
 
-      {/* Style 5: Progressive reveal */}
-      <section className="w-full pt-36 pb-16 px-6">
-        <div className="max-w-7xl mx-auto">
-          <motion.span
-            className="text-xs font-bold uppercase tracking-[0.3em] text-muted-foreground"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.4 }}
-          >
-            Special Offers
-          </motion.span>
-          <motion.h1
-            className="text-4xl md:text-6xl font-bold leading-[1.05] mt-4 max-w-3xl"
-            style={{ fontFamily: "var(--font-heading)", color: "hsl(var(--foreground))" }}
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, delay: 0.15, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}
-          >
-            Smart rewards, not cheap discounts.
-          </motion.h1>
-          <motion.p
-            className="text-muted-foreground text-base md:text-lg mt-5 max-w-lg"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.45 }}
-          >
-            Premium value for first-time clients and loyal customers, because quality deserves to be rewarded.
-          </motion.p>
+      {/* Hero */}
+      <section className="relative pt-40 pb-20 px-6 md:px-10 bg-white overflow-hidden">
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full opacity-[0.03] blur-3xl pointer-events-none" style={{ background: "hsl(var(--primary))" }} />
+        
+        <div className="max-w-4xl mx-auto relative z-10 text-center">
+            <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="section-label text-accent mb-4">Smart Rewards</motion.p>
+            <motion.h1 
+                initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease }}
+                className="heading-display text-primary mb-6" 
+                style={{ fontSize: "clamp(2.5rem, 5vw, 4.5rem)" }}
+            >
+                Quality that <br />
+                <span className="text-secondary-blue italic">gives back.</span>
+            </motion.h1>
+            <p className="text-muted-foreground text-lg leading-relaxed max-w-2xl mx-auto">
+               We believe in rewarding loyalty and welcoming new families into our community with premium value.
+            </p>
         </div>
       </section>
 
-      {/* Promotions */}
-      <section className="w-full py-24 px-6">
-        <div className="max-w-5xl mx-auto">
-          <motion.div
-            className="grid grid-cols-1 md:grid-cols-3 gap-8"
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-          >
+      {/* Promotions Grid */}
+      <section className="pb-24 px-6 md:px-10">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {promotions.map((promo, i) => {
               const Icon = promo.icon;
               return (
                 <motion.div
                   key={i}
-                  variants={cardVariants}
-                  className="group relative rounded-2xl overflow-hidden border border-border bg-card transition-all duration-500 hover:shadow-2xl hover:-translate-y-2"
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: i * 0.1, ease }}
+                  className="group"
                 >
-                  {/* Gradient top accent */}
-                  <div
-                    className="h-1.5 w-full"
-                    style={{ background: "linear-gradient(90deg, hsl(var(--brand-pink)), hsl(var(--brand-pink-soft)), hsl(var(--brand-pink)))" }}
-                  />
+                  <div className="relative h-full bg-white rounded-[2.5rem] border border-border/40 overflow-hidden shadow-sm hover:shadow-[var(--shadow-luxe)] hover:-translate-y-2 transition-all duration-500">
+                    {/* Top Accent */}
+                    <div className="h-2 w-full bg-accent" />
+                    
+                    <div className="p-10 flex flex-col h-full">
+                       <div className="flex items-center justify-between mb-8">
+                          <div className="w-14 h-14 rounded-2xl flex items-center justify-center bg-primary/5 text-primary group-hover:bg-primary group-hover:text-white transition-all duration-500">
+                            <Icon className="w-7 h-7" strokeWidth={1.5} />
+                          </div>
+                          <span className="px-4 py-1.5 rounded-full bg-secondary text-primary text-[10px] font-bold uppercase tracking-widest">
+                             {promo.tag}
+                          </span>
+                       </div>
+                       
+                       <h3 className="text-2xl font-bold text-primary mb-4" style={{ fontFamily: "var(--font-heading)" }}>
+                         {promo.title}
+                       </h3>
 
-                  <div className="p-8">
-                    <div className="flex items-center gap-3 mb-6">
-                      <div
-                        className="w-12 h-12 rounded-xl flex items-center justify-center"
-                        style={{ background: "var(--gradient-gold-card)" }}
-                      >
-                        <Icon className="w-6 h-6 text-primary-foreground" />
-                      </div>
-                      <span
-                        className="text-xs font-semibold uppercase tracking-widest px-3 py-1 rounded-full"
-                        style={{ background: "hsl(var(--brand-pink) / 0.1)", color: "hsl(var(--brand-pink))" }}
-                      >
-                        {promo.tag}
-                      </span>
+                       <p className="text-muted-foreground text-sm leading-relaxed mb-10">
+                         {promo.description}
+                       </p>
+
+                       <div className="mt-auto pt-6 border-t border-border/50">
+                          <a href="/quote" className="flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-accent group-hover:gap-4 transition-all">
+                             {promo.cta} <ArrowRight className="w-4 h-4" />
+                          </a>
+                       </div>
                     </div>
-
-                    <h3
-                      className="text-xl font-bold text-foreground mb-3"
-                      style={{ fontFamily: "var(--font-heading)" }}
-                    >
-                      {promo.title}
-                    </h3>
-                    <p className="text-sm text-muted-foreground leading-relaxed mb-6">
-                      {promo.description}
-                    </p>
-
-                    <a
-                      href="/quote"
-                      className="inline-flex items-center gap-1 text-sm font-semibold text-accent group-hover:gap-2 transition-all"
-                    >
-                      {promo.cta}
-                      <ArrowRight className="w-4 h-4" />
-                    </a>
                   </div>
                 </motion.div>
               );
             })}
-          </motion.div>
+          </div>
         </div>
       </section>
 
+      {/* Fine Print / Note */}
+      <section className="px-6 md:px-10 pb-24">
+         <div className="max-w-3xl mx-auto p-12 rounded-[3.5rem] bg-primary text-white text-center relative overflow-hidden">
+            <div className="absolute top-0 right-0 p-8 opacity-10">
+               <Tag className="w-24 h-24 rotate-12" />
+            </div>
+            <p className="text-accent-light text-xs font-bold uppercase tracking-[0.3em] mb-4">Note on Offers</p>
+            <p className="text-lg leading-relaxed mb-10 opacity-80">
+               Promotions cannot be combined and are subject to availability. Our priority is always maintaining our 5 star quality standard for every client.
+            </p>
+            <a href="tel:9782357033" className="inline-flex items-center gap-3 text-xl font-bold hover:text-accent-light transition-colors">
+               978.235.7033
+            </a>
+         </div>
+      </section>
+
       <Footer />
-      <FloatingSocial />
+      <FloatingCallButton />
     </div>
   );
 }

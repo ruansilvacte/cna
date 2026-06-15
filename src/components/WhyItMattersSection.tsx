@@ -1,149 +1,141 @@
 import { motion } from "framer-motion";
-import { Shield, Sparkles, Heart } from "lucide-react";
-import { useHomeContent } from "@/hooks/useHomeContent";
+import { Heart, Sparkles, Coffee, Users } from "lucide-react";
 
 const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
-const icons = [Shield, Sparkles, Heart];
-
-const defaults = [
+const emotionalPoints = [
   {
-    title: "Trust & Reliability",
-    description:
-      "Letting someone into your home requires trust, and we honor it. A high-trust team, clear communication, and proven systems guarantee every service is handled with professionalism and accountability.",
-    tagline: "Your home is in safe hands",
+    icon: Coffee,
+    title: "A cleaner home. A calmer life.",
+    description: "Your environment directly impacts your well-being. We create the serenity you need to recharge and find peace after a long day.",
   },
   {
-    title: "Quality & Consistency",
-    description:
-      "Our operation is built on repeatable systems and detailed checklists tailored per service. Whether it's a recurring residential clean or an Airbnb turnover, the same elevated standard, every single time.",
-    tagline: "Consistent results, every time",
+    icon: Heart,
+    title: "More family time starts at home.",
+    description: "Reclaim the hours spent on chores and invest them where they matter most: with the people you love, creating memories that last.",
   },
   {
-    title: "Peace of Mind",
-    description:
-      "Remove the stress from your routine. With WeHome you don't double-check, follow up, or worry. We handle everything with precision so you can focus on what matters most.",
-    tagline: "We handle the details",
+    icon: Sparkles,
+    title: "We clean so you can enjoy life.",
+    description: "Whether it's hosting friends or enjoying a quiet evening, our professional touch ensures your home is always ready for life's best moments.",
   },
 ];
 
 export default function WhyItMattersSection() {
-  const { data: content } = useHomeContent();
-
-  const cards = defaults.map((d, i) => ({
-    icon: icons[i],
-    title: content?.[`home_why_title_${i + 1}`] || d.title,
-    description: content?.[`home_why_description_${i + 1}`] || d.description,
-    tagline: content?.[`home_why_tagline_${i + 1}`] || d.tagline,
-  }));
-
   return (
-    <section
-      className="relative w-full py-24 md:py-32 px-5 md:px-10 overflow-hidden"
-      style={{ background: "hsl(var(--primary))" }}
-    >
-      {/* Pink decorative glow */}
+    <section className="relative w-full py-24 md:py-32 px-6 md:px-10 overflow-hidden bg-white">
+      {/* Subtle decorative shapes */}
       <div
-        className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full opacity-25 blur-3xl pointer-events-none"
-        style={{ background: "radial-gradient(circle, hsl(var(--brand-pink)) 0%, transparent 70%)" }}
+        className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full opacity-[0.03] blur-3xl pointer-events-none"
+        style={{ background: "hsl(var(--accent))" }}
       />
       <div
-        className="absolute bottom-0 left-0 w-[500px] h-[500px] rounded-full opacity-15 blur-3xl pointer-events-none"
-        style={{ background: "radial-gradient(circle, hsl(var(--brand-pink-soft)) 0%, transparent 70%)" }}
+        className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full opacity-[0.02] blur-3xl pointer-events-none"
+        style={{ background: "hsl(var(--primary))" }}
       />
 
       <div className="relative max-w-7xl mx-auto">
-        <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-end mb-16">
+        <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center mb-20">
           <motion.div
-            className="lg:col-span-7"
+            className="lg:col-span-12 text-center"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, ease }}
           >
             <p
-              className="text-[10px] font-semibold uppercase tracking-[0.3em] mb-5"
-              style={{ color: "hsl(var(--brand-pink))" }}
+              className="text-xs font-bold uppercase tracking-[0.3em] mb-4 text-accent"
             >
-              Why It Matters
+              The CNA MAIDPRO Difference
             </p>
             <h2
-              className="text-4xl md:text-5xl lg:text-[3.75rem] leading-[1.05] tracking-tight font-light text-white"
+              className="text-4xl md:text-5xl lg:text-[4rem] leading-[1.1] tracking-tight font-bold text-primary mb-8"
               style={{ fontFamily: "var(--font-heading)" }}
             >
-              Cleaning is the service.{" "}
-              <em
-                className="italic font-normal"
-                style={{ color: "hsl(var(--brand-pink))" }}
-              >
-                Tranquility is the result.
-              </em>
+              We Care for Your Home So <br className="hidden md:block" />
+              <span className="text-secondary-blue italic">You Can Care for Yourself</span>
             </h2>
+            <p className="max-w-3xl mx-auto text-lg md:text-xl text-muted-foreground leading-relaxed">
+              We believe your home should be a sanctuary, not a series of endless tasks. Our mission is to handle the precision and care of your cleaning so you can reclaim your time and enjoy a stress free lifestyle.
+            </p>
           </motion.div>
-          <motion.p
-            className="lg:col-span-5 text-base md:text-lg leading-relaxed text-white/70"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7, delay: 0.15, ease }}
-          >
-            You're not just hiring a cleaner, you're investing in consistency, reliability, and the elevated daily experience of a home that always feels cared for.
-          </motion.p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-5 lg:gap-7">
-          {cards.map((card, i) => {
-            const Icon = card.icon;
+        <div className="grid md:grid-cols-3 gap-8 lg:gap-10">
+          {emotionalPoints.map((point, i) => {
+            const Icon = point.icon;
             return (
               <motion.div
                 key={i}
-                className="group relative rounded-3xl p-8 md:p-10 flex flex-col overflow-hidden border"
-                style={{
-                  background: "hsl(0 0% 100% / 0.04)",
-                  borderColor: "hsl(0 0% 100% / 0.1)",
-                  backdropFilter: "blur(8px)",
-                }}
+                className="group relative flex flex-col items-center text-center p-8 rounded-[2.5rem] bg-secondary/20 border border-border/10 hover:bg-white hover:shadow-xl transition-all duration-500"
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-60px" }}
-                transition={{ duration: 0.7, delay: 0.1 + i * 0.12, ease }}
-                whileHover={{ y: -6 }}
+                transition={{ duration: 0.7, delay: i * 0.15, ease }}
               >
-                {/* Pink gradient accent on hover */}
                 <div
-                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-                  style={{
-                    background:
-                      "radial-gradient(circle at 0% 0%, hsl(var(--brand-pink) / 0.18) 0%, transparent 60%)",
-                  }}
-                />
-
-                <div className="relative">
-                  <div
-                    className="w-14 h-14 rounded-2xl flex items-center justify-center mb-7"
-                    style={{ background: "var(--gradient-pink)" }}
-                  >
-                    <Icon className="w-6 h-6 text-white" strokeWidth={1.6} />
-                  </div>
-                  <p
-                    className="text-[10px] font-semibold uppercase tracking-[0.25em] mb-3"
-                    style={{ color: "hsl(var(--brand-pink))" }}
-                  >
-                    0{i + 1} ·{" "}
-                    <span className="text-white/60">{card.tagline}</span>
-                  </p>
-                  <h3
-                    className="text-2xl md:text-[1.65rem] font-light text-white leading-tight mb-4"
-                    style={{ fontFamily: "var(--font-heading)" }}
-                  >
-                    {card.title}
-                  </h3>
-                  <p className="text-sm leading-relaxed text-white/70">{card.description}</p>
+                  className="w-16 h-16 rounded-2xl flex items-center justify-center mb-8 bg-white shadow-sm group-hover:bg-primary group-hover:text-white transition-all duration-300 transform group-hover:rotate-6"
+                >
+                  <Icon className="w-8 h-8 text-primary group-hover:text-white transition-colors" strokeWidth={1.5} />
                 </div>
+                <h3
+                  className="text-2xl font-bold text-primary leading-tight mb-4"
+                  style={{ fontFamily: "var(--font-heading)" }}
+                >
+                  {point.title}
+                </h3>
+                <p className="text-muted-foreground leading-relaxed italic">"{point.description}"</p>
               </motion.div>
             );
           })}
         </div>
+        
+        {/* Memory section / Emotional story footer */}
+        <motion.div 
+          className="mt-20 p-10 md:p-16 rounded-[3rem] bg-primary text-white overflow-hidden relative"
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, ease }}
+        >
+          {/* Subtle light effect */}
+          <div className="absolute top-0 right-0 w-full h-full bg-gradient-to-br from-white/10 to-transparent pointer-events-none" />
+          
+          <div className="relative z-10 grid lg:grid-cols-2 gap-10 items-center">
+            <div>
+              <h4 className="text-3xl md:text-4xl font-bold mb-6" style={{ fontFamily: "var(--font-heading)" }}>
+                Because some moments are priceless
+              </h4>
+              <p className="text-white/80 text-lg leading-relaxed mb-8">
+                Imagine coming home to the scent of fresh sheets and sparkling surfaces. Instead of reaching for a mop, you reach for a book, or play with your kids, or prepare a quiet dinner with your partner. That's the peace of mind we deliver every single day.
+              </p>
+              <div className="flex items-center gap-6">
+                <div className="flex -space-x-4">
+                  {[1, 2, 3].map(n => (
+                    <div key={n} className="w-12 h-12 rounded-full border-2 border-primary bg-secondary/20 flex items-center justify-center overflow-hidden">
+                       <Users className="w-6 h-6 text-white/40" />
+                    </div>
+                  ))}
+                </div>
+                <span className="text-sm font-semibold text-accent-light uppercase tracking-widest">Trusted by 500+ local families</span>
+              </div>
+            </div>
+            <div className="flex justify-center flex-col items-center">
+              <div className="relative w-full max-w-sm rounded-[2.5rem] overflow-hidden shadow-2xl border border-white/10">
+                <video
+                  src="/videos/why.mp4"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="w-full h-auto object-cover"
+                  style={{ aspectRatio: "9/16", maxHeight: "400px", objectFit: "cover" }}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent pointer-events-none" />
+              </div>
+            </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

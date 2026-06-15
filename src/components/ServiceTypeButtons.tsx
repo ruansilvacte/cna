@@ -13,7 +13,7 @@ const SERVICE_META: Record<string, { icon: LucideIcon; pitch: string; label: str
   "airbnb-short-term-rental": {
     icon: BedDouble,
     label: "Airbnb",
-    pitch: "Guest-ready turnovers that protect your 5-star rating.",
+    pitch: "Guest ready turnovers that protect your 5 star rating.",
   },
   "commercial-cleaning": {
     icon: Briefcase,
@@ -28,12 +28,12 @@ const SERVICE_META: Record<string, { icon: LucideIcon; pitch: string; label: str
   "deep-cleaning": {
     icon: Sparkles,
     label: "Deep",
-    pitch: "Top-to-bottom reset for a truly fresh space.",
+    pitch: "Top to bottom reset for a truly fresh space.",
   },
   "post-construction-cleaning": {
     icon: Hammer,
-    label: "Post-Construction",
-    pitch: "Move-in ready after every renovation.",
+    label: "Post Construction",
+    pitch: "Move in ready after every renovation.",
   },
 };
 
@@ -90,7 +90,7 @@ export default function ServiceTypeButtons() {
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.15 }}
         >
-          Pick the experience you need, every service is run by the same trained, trusted Charlotte team.
+          Pick the experience you need, every service is run by the same trained, trusted Boston team.
         </motion.p>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">

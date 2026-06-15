@@ -2,126 +2,57 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import FloatingSocial from "@/components/FloatingSocial";
+import FloatingCallButton from "@/components/FloatingCallButton";
 import SeoHead from "@/components/SeoHead";
-import { MapPin, Phone } from "lucide-react";
+import { MapPin, Phone, ArrowRight, ShieldCheck, Star } from "lucide-react";
 import { useServiceAreas } from "@/hooks/useServiceAreas";
-import northPortImg from "@/assets/north-port.png";
-
-// City-specific images for North Carolina & Massachusetts regions
-const cityImages: Record<string, { src: string; label: string }[]> = {
-  "Primary Service Areas": [
-    { src: "https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=600&q=80", label: "Huntersville" },
-    { src: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&q=80", label: "Lakewood Ranch" },
-    { src: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80", label: "Charlotte" },
-    { src: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600&q=80", label: "Waxhaw" },
-  ],
-  "Airbnb & Coastal Areas": [
-    { src: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&q=80", label: "Anna Maria Island" },
-    { src: "https://images.unsplash.com/photo-1519046904884-53103b34b206?w=600&q=80", label: "Lake Norman" },
-    { src: "https://images.unsplash.com/photo-1506953823976-52e1fdc0149a?w=600&q=80", label: "Holmes Beach" },
-    { src: "https://images.unsplash.com/photo-1590523741831-ab7e8b8f9c7f?w=600&q=80", label: "Longboat Key" },
-    { src: "https://images.unsplash.com/photo-1504681869696-d977211a5f4c?w=600&q=80", label: "Siesta Key" },
-  ],
-  "Charlotte Metro": [
-    { src: "https://images.unsplash.com/photo-1564501049412-61c2a3083791?w=600&q=80", label: "Charlotte" },
-    { src: "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=600&q=80", label: "Brandon" },
-    { src: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=600&q=80", label: "Clearwater" },
-    { src: "https://images.unsplash.com/photo-1600573472592-401b489a3cdc?w=600&q=80", label: "St. Petersburg" },
-    { src: "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=600&q=80", label: "Riverview" },
-  ],
-  "South Region": [
-    { src: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=600&q=80", label: "Waxhaw" },
-    { src: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=600&q=80", label: "Port Charlotte" },
-    { src: "https://images.unsplash.com/photo-1605146769289-440113cc3d00?w=600&q=80", label: "Punta Gorda" },
-  ],
-  "Extended Coverage": [
-    { src: "https://images.unsplash.com/photo-1583608205776-bfd35f0d9f83?w=600&q=80", label: "Palmetto" },
-    { src: "https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=600&q=80", label: "Ellenton" },
-    { src: northPortImg, label: "North Port" },
-    { src: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=600&q=80", label: "Osprey" },
-  ],
-};
 
 const defaultCityImages: { src: string; label: string }[] = [
-  { src: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=600&q=80", label: "Florida" },
-  { src: "https://images.unsplash.com/photo-1600607687644-aac4c3eac7f4?w=600&q=80", label: "Carolinas" },
-  { src: "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=600&q=80", label: "Sunshine State" },
+  { src: "https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=800&q=80", label: "Premium Homes" },
+  { src: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80", label: "Local Communities" },
+  { src: "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=800&q=80", label: "Trusted Neighborhoods" },
 ];
 
 function RegionCarousel({ regionName }: { regionName: string }) {
-  const images = cityImages[regionName] || defaultCityImages;
+  const images = defaultCityImages;
   const [current, setCurrent] = useState(0);
 
   useEffect(() => {
-    const timer = setInterval(() => setCurrent((p) => (p + 1) % images.length), 3500);
+    const timer = setInterval(() => setCurrent((p) => (p + 1) % images.length), 4000);
     return () => clearInterval(timer);
   }, [images.length]);
 
   return (
-    <div className="relative w-full h-44 rounded-xl overflow-hidden mb-5 bg-muted">
+    <div className="relative w-full h-56 rounded-[2rem] overflow-hidden mb-6 bg-muted group">
       {images.map((img, i) => (
         <img
           key={i}
           src={img.src}
           alt={img.label}
-          loading="lazy"
-          decoding="async"
-          width={600}
-          height={400}
-          className="absolute inset-0 w-full h-full object-cover transition-opacity duration-700"
+          className="absolute inset-0 w-full h-full object-cover transition-all duration-1000 group-hover:scale-105"
           style={{ opacity: i === current ? 1 : 0 }}
         />
       ))}
-      <div
-        className="absolute inset-0"
-        style={{ background: "linear-gradient(to top, hsl(var(--brand-blue) / 0.7), hsl(var(--brand-blue) / 0.15), transparent)" }}
-      />
-      <div className="absolute bottom-3 left-4">
-        <span className="text-white/70 text-[10px] uppercase tracking-[0.15em] font-medium">
+      <div className="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent" />
+      <div className="absolute bottom-6 left-8">
+        <span className="text-white/70 text-[10px] font-bold uppercase tracking-widest mb-1 block">
           {regionName}
         </span>
-        <p
-          className="text-white text-sm font-semibold mt-0.5"
-          style={{ fontFamily: "var(--font-heading)" }}
-        >
+        <p className="text-white text-lg font-bold" style={{ fontFamily: "var(--font-heading)" }}>
           {images[current].label}
         </p>
-      </div>
-      <div className="absolute bottom-3 right-4 flex gap-1.5">
-        {images.map((_, i) => (
-          <button
-            key={i}
-            onClick={() => setCurrent(i)}
-            aria-label={`Slide ${i + 1}`}
-            className="w-1.5 h-1.5 rounded-full transition-all duration-300"
-            style={{ background: i === current ? "hsl(var(--brand-pink))" : "rgba(255,255,255,0.5)" }}
-          />
-        ))}
       </div>
     </div>
   );
 }
-// No emojis, clean region titles
 
-const containerVariants = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.1, delayChildren: 0.2 } },
-};
-
-const cardVariants = {
-  hidden: { opacity: 0, y: 30, filter: "blur(6px)" },
-  visible: {
-    opacity: 1, y: 0, filter: "blur(0px)",
-    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] },
-  },
-};
+const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
 export default function ServiceAreas() {
   const { data: dbAreas = [], isLoading } = useServiceAreas(true);
 
   const groupedAreas = dbAreas.reduce<Record<string, typeof dbAreas>>((acc, area) => {
-    const region = area.region || "Other";
+    const region = area.region || "Other Areas";
     if (!acc[region]) acc[region] = [];
     acc[region].push(area);
     return acc;
@@ -129,79 +60,52 @@ export default function ServiceAreas() {
 
   return (
     <div className="min-h-screen bg-background">
-      <SeoHead slug="/service-areas" fallbackTitle="Service Areas, WeHome Cleaning" />
+      <SeoHead slug="/service-areas" fallbackTitle="Our Service Areas | CNA MAIDPRO" />
       <Header />
 
       {/* Hero */}
-      <section className="w-full pt-36 pb-10 px-6">
-        <div className="max-w-7xl mx-auto">
-          <motion.span
-            className="text-xs font-bold uppercase tracking-[0.3em] text-muted-foreground"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5 }}
-          >
-            Service Areas
-          </motion.span>
-          <motion.h1
-            className="text-4xl md:text-6xl lg:text-7xl font-bold leading-[1.05] mt-4 max-w-4xl"
-            style={{ fontFamily: "var(--font-heading)", color: "hsl(var(--brand-brown))" }}
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, delay: 0.1, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}
-          >
-            Proudly serving North Carolina & Massachusetts.
-          </motion.h1>
-          <motion.p
-            className="text-muted-foreground text-base md:text-lg mt-6 max-w-xl"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-          >
-            From Charlotte to Waxhaw, covering 100+ ZIP codes across Huntersville, Waxhaw, and beyond.
-          </motion.p>
-          <motion.div
-            className="w-20 h-1 rounded-full mt-8"
-            style={{ background: "linear-gradient(90deg, hsl(var(--brand-pink)), hsl(var(--brand-pink-soft)))" }}
-            initial={{ scaleX: 0 }}
-            animate={{ scaleX: 1 }}
-            transition={{ duration: 0.7, delay: 0.5 }}
-          />
+      <section className="relative pt-40 pb-20 px-6 md:px-10 bg-white overflow-hidden">
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full opacity-[0.03] blur-3xl pointer-events-none" style={{ background: "hsl(var(--primary))" }} />
+        
+        <div className="max-w-4xl mx-auto relative z-10 text-center">
+            <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="section-label text-accent mb-4">Massachusetts Presence</motion.p>
+            <motion.h1 
+                initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease }}
+                className="heading-display text-primary mb-6" 
+                style={{ fontSize: "clamp(2.5rem, 5vw, 4.5rem)" }}
+            >
+                Where professional clean <br />
+                <span className="text-secondary-blue italic">meets your community.</span>
+            </motion.h1>
+            <p className="text-muted-foreground text-lg leading-relaxed max-w-2xl mx-auto">
+               Proudly serving families across the Massachusetts region with a commitment to local excellence and absolute reliability.
+            </p>
         </div>
       </section>
 
       {/* Regions Grid */}
-      <section className="w-full py-6 px-6">
-        <div className="max-w-6xl mx-auto">
-          <motion.div
-            className="grid grid-cols-1 md:grid-cols-2 gap-8"
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
-          >
+      <section className="pb-24 px-6 md:px-10">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
             {isLoading
               ? Array.from({ length: 4 }).map((_, index) => (
-                  <div key={index} className="rounded-2xl border border-border bg-card p-8">
-                    <div className="mb-6 h-10 w-40 rounded-lg bg-muted animate-pulse" />
-                    <div className="flex flex-wrap gap-2">
-                      {Array.from({ length: 6 }).map((__, pillIndex) => (
-                        <div key={pillIndex} className="h-8 w-24 rounded-full bg-muted animate-pulse" />
-                      ))}
-                    </div>
-                  </div>
+                  <div key={index} className="rounded-[2.5rem] bg-muted animate-pulse h-[400px]" />
                 ))
               : Object.entries(groupedAreas).map(([regionName, regionAreas], i) => (
                 <motion.div
                   key={i}
-                  variants={cardVariants}
-                  className="rounded-2xl border border-border bg-card p-6 transition-all duration-500 hover:shadow-xl"
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: i * 0.1, ease }}
+                  className="bg-white rounded-[3rem] border border-border/40 p-10 hover:shadow-[var(--shadow-luxe)] transition-all duration-500"
                 >
                   <RegionCarousel regionName={regionName} />
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-wrap gap-3">
                     {regionAreas.map((area) => (
                       <span
                         key={area.id}
-                        className="px-3 py-1.5 rounded-full text-xs font-medium bg-muted text-foreground"
+                        className="px-5 py-2.5 rounded-2xl text-xs font-bold bg-secondary text-primary border border-primary/5"
                       >
                         {area.name}
                       </span>
@@ -209,70 +113,67 @@ export default function ServiceAreas() {
                   </div>
                 </motion.div>
                 ))}
-          </motion.div>
+          </div>
 
           {/* Stats bar */}
           <motion.div
-            className="mt-16 rounded-2xl px-8 py-10 grid grid-cols-1 md:grid-cols-3 gap-8 text-center text-white"
+            className="mt-20 rounded-[3rem] px-10 py-16 grid grid-cols-1 md:grid-cols-3 gap-12 text-center text-white relative overflow-hidden"
             style={{ background: "var(--gradient-blue)" }}
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.7 }}
+            viewport={{ once: true }}
           >
-            <div>
-              <span className="text-3xl md:text-4xl font-bold" style={{ fontFamily: "var(--font-heading)" }}>100+</span>
-              <p className="text-white/70 text-sm mt-1">ZIP Codes Covered</p>
+            <div className="relative z-10">
+               <div className="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center mx-auto mb-4">
+                  <MapPin className="w-6 h-6" />
+               </div>
+              <span className="text-4xl font-bold" style={{ fontFamily: "var(--font-heading)" }}>100+</span>
+              <p className="text-white/60 text-[10px] font-bold uppercase tracking-widest mt-2">ZIP Codes Covered</p>
             </div>
-            <div>
-              <span className="text-3xl md:text-4xl font-bold" style={{ fontFamily: "var(--font-heading)" }}>5</span>
-              <p className="text-white/70 text-sm mt-1">Major Regions</p>
+            <div className="relative z-10">
+               <div className="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center mx-auto mb-4">
+                  <Star className="w-6 h-6" />
+               </div>
+              <span className="text-4xl font-bold" style={{ fontFamily: "var(--font-heading)" }}>5.0 ★</span>
+              <p className="text-white/60 text-[10px] font-bold uppercase tracking-widest mt-2">Average Rating</p>
             </div>
-            <div>
-              <span className="text-3xl md:text-4xl font-bold" style={{ fontFamily: "var(--font-heading)" }}>400+</span>
-              <p className="text-white/70 text-sm mt-1">Monthly Services</p>
-            </div>
-          </motion.div>
-
-          {/* CTA */}
-          <motion.div
-            className="mt-12 rounded-3xl overflow-hidden text-center"
-            style={{ background: "var(--gradient-pink)" }}
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.8 }}
-          >
-            <div className="p-8 md:p-16 flex flex-col items-center gap-5">
-              <span className="text-[11px] font-bold uppercase tracking-[0.3em] text-white/70">
-                Not Sure If We Serve Your Area?
-              </span>
-              <h3
-                className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-white leading-tight max-w-lg"
-                style={{ fontFamily: "var(--font-heading)" }}
-              >
-                Let's make your property shine.
-              </h3>
-              <p className="text-white/80 text-sm md:text-base max-w-md leading-relaxed">
-                Contact us and we'll let you know. Free, no-obligation quotes available.
-              </p>
-              <motion.a
-                href="/quote"
-                className="mt-2 inline-flex items-center gap-2 px-8 py-3 rounded-full text-[13px] font-bold uppercase tracking-wider transition-all duration-300"
-                style={{ background: "white", color: "hsl(var(--brand-blue))" }}
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.97 }}
-              >
-                <Phone className="w-4 h-4" />
-                Check Availability
-              </motion.a>
+            <div className="relative z-10">
+               <div className="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center mx-auto mb-4">
+                  <ShieldCheck className="w-6 h-6" />
+               </div>
+              <span className="text-4xl font-bold" style={{ fontFamily: "var(--font-heading)" }}>10k+</span>
+              <p className="text-white/60 text-[10px] font-bold uppercase tracking-widest mt-2">Service Hours</p>
             </div>
           </motion.div>
         </div>
       </section>
 
+      {/* Final CTA */}
+      <section className="pb-24 px-6 md:px-10">
+        <motion.div
+          className="max-w-5xl mx-auto rounded-[3.5rem] p-12 md:p-20 text-center text-white relative overflow-hidden shadow-2xl"
+          style={{ background: "var(--gradient-blue)" }}
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+        >
+          <div className="relative z-10 flex flex-col items-center">
+            <h2 className="heading-display mb-8" style={{ fontSize: "clamp(2rem, 5vw, 3.5rem)" }}>
+               Experience the <br />
+               <em className="italic" style={{ color: "hsl(var(--accent-light))" }}>MaidPro difference.</em>
+            </h2>
+            <div className="flex flex-wrap justify-center gap-6">
+              <a href="/quote" className="btn-primary bg-white text-primary hover:bg-white/95 px-12">Get Free Rate Quote <ArrowRight className="w-4 h-4 ml-2" /></a>
+              <a href="tel:9782357033" className="flex items-center gap-2 font-bold text-xl hover:text-accent-light transition-colors">
+                <Phone className="w-5 h-5" /> 978.235.7033
+              </a>
+            </div>
+          </div>
+        </motion.div>
+      </section>
+
       <Footer />
-      <FloatingSocial />
+      <FloatingCallButton />
     </div>
   );
 }

@@ -67,7 +67,7 @@ export default function ServiceDetail() {
     <div className="min-h-screen bg-background">
       <SeoHead
         slug={`/services/${service.slug}`}
-        fallbackTitle={`${service.title}, WeHome Cleaning`}
+        fallbackTitle={`${service.title}, CNA MAIDPRO`}
       />
       <Header />
 
@@ -163,7 +163,7 @@ export default function ServiceDetail() {
           {[
             { icon: Star, text: "Top-Rated Service" },
             { icon: Zap, text: "400+ Cleanings / Month" },
-            { icon: Shield, text: "24-Hour Guarantee" },
+            { icon: Shield, text: "24 Hour Guarantee" },
           ].map(({ icon: Icon, text }) => (
             <motion.div
               key={text}
@@ -173,7 +173,7 @@ export default function ServiceDetail() {
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
             >
-              <Icon className="w-4 h-4 text-primary" />
+              <Icon className="w-4 h-4 text-accent" />
               <span className="font-semibold">{text}</span>
             </motion.div>
           ))}
@@ -183,7 +183,7 @@ export default function ServiceDetail() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
           >
-            Trusted by hosts across Charlotte, Huntersville & Waxhaw
+            Trusted by families across our service areas
           </motion.span>
         </div>
       </section>
@@ -572,7 +572,7 @@ export default function ServiceDetail() {
             Ready to elevate your Airbnb?
           </h2>
           <p className="text-white/55 mb-10 text-base md:text-lg max-w-xl mx-auto leading-relaxed">
-            Get a fast quote and experience premium cleaning with a 24-hour satisfaction guarantee.
+            Get a fast quote and experience premium cleaning with a 24 hour satisfaction guarantee.
           </p>
           <motion.a
             href="/quote"

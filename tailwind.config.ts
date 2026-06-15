@@ -57,6 +57,21 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        // CNA Brand palette — Deep Navy + Sage Green (from logo)
+        "cna-navy": "hsl(var(--cna-navy))",
+        "cna-navy-dark": "hsl(var(--cna-navy-dark))",
+        "cna-navy-light": "hsl(var(--cna-navy-light))",
+        "cna-sage": "hsl(var(--cna-sage))",
+        "cna-sage-dark": "hsl(var(--cna-sage-dark))",
+        "cna-sage-light": "hsl(var(--cna-sage-light))",
+        "cna-sage-pale": "hsl(var(--cna-sage-pale))",
+        "cna-cream": "hsl(var(--cna-cream))",
+        "cna-beige": "hsl(var(--cna-beige))",
+        "cna-charcoal": "hsl(var(--cna-charcoal))",
+      },
+      fontFamily: {
+        heading: ["var(--font-heading)"],
+        body: ["var(--font-body)"],
       },
       borderRadius: {
         lg: "var(--radius)",

@@ -41,9 +41,9 @@ export default function AdminSidebar({ open, onToggle }: Props) {
         {/* Logo */}
         <div className="h-16 flex items-center justify-between px-4 border-b border-border shrink-0">
         {open ? (
-            <img loading="lazy" decoding="async" src="/logo.png" alt="WeHome Cleaning" className="h-9" />
+            <img loading="lazy" decoding="async" src="/logo.png" alt="CNA MAIDPRO" className="h-9" />
           ) : (
-            <img loading="lazy" decoding="async" src="/logo.png" alt="WeHome Cleaning" className="h-7 mx-auto" />
+            <img loading="lazy" decoding="async" src="/logo.png" alt="CNA MAIDPRO" className="h-7 mx-auto" />
           )}
           <button onClick={onToggle} className="p-1.5 rounded-lg hover:bg-muted transition-colors hidden md:flex">
             {open ? <ChevronLeft className="w-4 h-4" /> : <ChevronRight className="w-4 h-4" />}

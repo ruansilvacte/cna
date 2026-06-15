@@ -1,34 +1,34 @@
 import { motion } from "framer-motion";
-import { Star, Quote } from "lucide-react";
+import { Star, Quote, CheckCircle } from "lucide-react";
 import { useHomeContent } from "@/hooks/useHomeContent";
+import { useNavigate } from "react-router-dom";
 
-/* Fresh, original reviews, Home section */
+/* Boston-area reviews */
 const homeReviews = [
   {
-    text: "Walked into my house after their first visit and just stood there. Every surface gleamed, even places I forgot to mention.",
+    text: "I walked into my home after their first visit and just stood there. Every surface was spotless, even the places I forgot to mention. CNA MAIDPRO is something special.",
     name: "Olivia M.",
-    place: "Parrish, FL",
+    place: "Boston, MA",
+    service: "Regular Cleaning",
     featured: true,
   },
   {
-    text: "Booking took two minutes, the team arrived early, and they left a handwritten note. That's hospitality.",
-    name: "Brendan K.",
-    place: "Sarasota, FL",
+    text: "As a Boston mom of three, I was drowning. CNA MAIDPRO gave me my weekends back. I can't put a price on that.",
+    name: "Sarah K.",
+    place: "Cambridge, MA",
+    service: "Recurring Service",
   },
   {
-    text: "We rent three cabins. Turnover used to be chaos, now it's a 90-minute window and zero guest complaints in eight months.",
-    name: "Priya N.",
-    place: "Anna Maria Island",
+    text: "They asked about our pets and our cleaning preferences before quoting. Felt like hiring a partner, not a vendor. Outstanding service.",
+    name: "Marcus T.",
+    place: "South End",
+    service: "Regular Cleaning",
   },
   {
-    text: "Honestly skeptical at first. These folks delivered. Baseboards, blinds, inside the oven. All of it.",
-    name: "Tomás R.",
-    place: "Bradenton, FL",
-  },
-  {
-    text: "They asked about our dog, our allergies, and our priorities before quoting. Felt like hiring a partner, not a vendor.",
-    name: "Hana W.",
-    place: "Lakewood Ranch",
+    text: "Moved into a new apartment and it was rough. CNA MAIDPRO transformed it. I actually cried. It looked brand new.",
+    name: "Priya R.",
+    place: "Brookline, MA",
+    service: "Move In Cleaning",
   },
 ];
 
@@ -44,8 +44,8 @@ function StarsRow({ delay = 0 }: { delay?: number }) {
           transition={{ delay: delay + i * 0.06, duration: 0.3, type: "spring", stiffness: 300 }}
         >
           <Star
-            className="w-4 h-4"
-            style={{ fill: "hsl(var(--brand-pink))", color: "hsl(var(--brand-pink))" }}
+            className="w-3.5 h-3.5"
+            style={{ fill: "hsl(var(--cna-sage))", color: "hsl(var(--cna-sage))" }}
           />
         </motion.div>
       ))}
@@ -54,202 +54,142 @@ function StarsRow({ delay = 0 }: { delay?: number }) {
 }
 
 export default function TestimonialsSection() {
+  const navigate = useNavigate();
   const { data: content } = useHomeContent();
   const scale = parseFloat(content?.home_font_scale_testimonials || "1") || 1;
 
-  // DB override
-  const reviews = (() => {
-    if (!content) return homeReviews;
-    const dbReviews: typeof homeReviews = [];
-    for (let i = 1; i <= 5; i++) {
-      const name = content[`home_testimonial_name_${i}`];
-      const text = content[`home_testimonial_text_${i}`];
-      if (name && text) {
-        dbReviews.push({
-          text,
-          name,
-          place: content[`home_testimonial_location_${i}`] || "",
-          featured: i === 1,
-        });
-      }
-    }
-    return dbReviews.length > 0 ? dbReviews : homeReviews;
-  })();
-
-  const [featured, ...rest] = reviews;
-
   return (
-    <section className="relative w-full py-20 md:py-28 px-4 sm:px-6 lg:px-8 overflow-hidden"
-      style={{ background: "hsl(var(--brand-blush))" }}
+    <section
+      className="relative w-full py-24 md:py-32 px-6 lg:px-10 overflow-hidden bg-white"
     >
-      {/* Soft brand wash */}
+      {/* Soft wash backgrounds */}
       <div className="absolute inset-0 pointer-events-none">
         <div
-          className="absolute -top-32 -right-32 w-[480px] h-[480px] rounded-full blur-[140px] opacity-50"
-          style={{ background: "hsl(var(--brand-pink) / 0.35)" }}
+          className="absolute -top-32 -right-32 w-[600px] h-[600px] rounded-full blur-[160px] opacity-[0.03]"
+          style={{ background: "hsl(var(--cna-sage))" }}
         />
         <div
-          className="absolute -bottom-32 -left-32 w-[480px] h-[480px] rounded-full blur-[140px] opacity-40"
-          style={{ background: "hsl(var(--primary) / 0.18)" }}
+          className="absolute -bottom-32 -left-32 w-[600px] h-[600px] rounded-full blur-[160px] opacity-[0.03]"
+          style={{ background: "hsl(var(--cna-navy))" }}
         />
       </div>
 
       <div className="relative max-w-7xl mx-auto">
-        {/* Header, editorial alignment */}
-        <div className="grid md:grid-cols-12 gap-6 md:gap-10 items-end mb-14">
+        {/* Header Header */}
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-20">
           <motion.div
-            className="md:col-span-7"
+            className="max-w-xl"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.8 }}
           >
-            <p
-              className="text-[0.7rem] font-bold tracking-[0.32em] uppercase mb-5"
-              style={{ color: "hsl(var(--brand-pink))" }}
-            >
-             , In Their Words
-            </p>
+            <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-accent mb-6">Voices Across Boston</p>
             <h2
-              className="font-bold leading-[1.02] tracking-tight"
+              className="heading-display leading-[1.05]"
               style={{
-                fontFamily: "var(--font-heading)",
-                color: "hsl(var(--primary))",
-                fontSize: `clamp(${2.25 * scale}rem, ${5 * scale}vw, ${4 * scale}rem)`,
+                fontSize: `clamp(${2.5 * scale}rem, ${5 * scale}vw, ${4 * scale}rem)`,
               }}
             >
-              Real homes.<br />
-              <em className="italic font-light" style={{ color: "hsl(var(--brand-pink))" }}>
-                Real reviews.
+              The families we <br />
+              <em className="italic font-normal text-muted-foreground" style={{ color: "hsl(var(--cna-sage-dark))" }}>
+                keep protected.
               </em>
             </h2>
           </motion.div>
 
           <motion.div
-            className="md:col-span-5 md:text-right"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <div className="inline-flex flex-col gap-2 items-start md:items-end">
-              <div className="flex items-center gap-2">
-                <span
-                  className="text-5xl md:text-6xl font-bold tabular-nums"
-                  style={{ fontFamily: "var(--font-heading)", color: "hsl(var(--primary))" }}
-                >
-                  5.0
-                </span>
-                <div className="flex flex-col items-start">
-                  <StarsRow />
-                  <span className="text-[0.7rem] tracking-wider uppercase mt-1" style={{ color: "hsl(var(--muted-foreground))" }}>
-                    Average Rating
-                  </span>
-                </div>
-              </div>
-              <a
-                href="https://share.google/ylu8IY0nGt63rCcYy"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-xs font-bold uppercase tracking-[0.2em] underline underline-offset-4 hover:opacity-70 transition-opacity"
-                style={{ color: "hsl(var(--primary))" }}
-              >
-                Read all Google reviews →
-              </a>
-            </div>
+            <button
+               onClick={() => navigate("/testimonials")}
+               className="group flex flex-col items-start md:items-end gap-2"
+            >
+               <div className="flex items-center gap-3">
+                  <span className="text-4xl md:text-5xl font-bold text-primary" style={{ fontFamily: "var(--font-heading)" }}>5.0</span>
+                  <div className="flex flex-col items-start">
+                     <StarsRow />
+                     <span className="text-[9px] font-bold uppercase tracking-widest text-muted-foreground mt-1">Certified Excellence</span>
+                  </div>
+               </div>
+               <span className="text-[11px] font-bold uppercase tracking-[0.15em] text-accent-dark border-b border-accent/30 group-hover:border-accent transition-all">
+                  Read all 300+ reviews
+               </span>
+            </button>
           </motion.div>
         </div>
 
-        {/* Editorial masonry */}
-        <div className="grid md:grid-cols-12 gap-5 md:gap-6">
-          {/* Featured large card, navy with serif quote */}
-          {featured && (
-            <motion.article
-              className="md:col-span-7 md:row-span-2 relative rounded-[2rem] p-8 md:p-12 overflow-hidden"
-              style={{ background: "hsl(var(--primary))" }}
-              initial={{ opacity: 0, y: 40 }}
+        {/* Dynamic Editorial Grid */}
+        <div className="grid md:grid-cols-12 gap-8 lg:gap-10">
+           {/* Primary Testimonial */}
+           <motion.div
+              className="md:col-span-12 lg:col-span-7 bg-[#FDFCFB] rounded-[3.5rem] p-10 md:p-14 border border-border/40 relative overflow-hidden group shadow-sm hover:shadow-md transition-shadow"
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-            >
-              <Quote
-                className="absolute top-8 right-8 w-24 h-24 opacity-10"
-                style={{ color: "hsl(var(--brand-pink))" }}
-              />
+              transition={{ duration: 0.8 }}
+           >
+              <Quote className="absolute top-10 right-10 w-20 h-20 text-accent/5 group-hover:scale-110 transition-transform duration-700" />
               <StarsRow delay={0.2} />
-              <p
-                className="mt-6 text-2xl md:text-3xl leading-snug font-light text-white relative z-10"
-                style={{ fontFamily: "var(--font-heading)" }}
-              >
-                "{featured.text}"
+              <p className="mt-10 text-2xl md:text-3xl leading-snug text-primary font-light mb-12" style={{ fontFamily: "var(--font-heading)" }}>
+                 "I walked into my home after their first visit and just stood there. Every surface was spotless, even the places I forgot to mention. <em className="text-accent-dark">CNA MAIDPRO is something special.</em>"
               </p>
-              <div className="mt-10 pt-8 border-t border-white/15 flex items-center justify-between">
-                <div>
-                  <p className="text-base font-semibold text-white">{featured.name}</p>
-                  <p className="text-xs uppercase tracking-[0.2em] mt-1 text-white/60">
-                    {featured.place}
-                  </p>
-                </div>
-                <span
-                  className="text-[0.65rem] font-bold uppercase tracking-[0.25em] px-3 py-1.5 rounded-full"
-                  style={{ background: "hsl(var(--brand-pink) / 0.2)", color: "hsl(var(--brand-pink-soft))" }}
-                >
-                  ✓ Verified Google Review
-                </span>
+              <div className="flex items-center justify-between pt-10 border-t border-border/40">
+                 <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 rounded-full bg-secondary flex items-center justify-center text-primary font-bold text-lg">O</div>
+                    <div>
+                        <h4 className="font-bold text-sm uppercase tracking-wide">Olivia M.</h4>
+                        <p className="text-[10px] uppercase tracking-widest text-muted-foreground">Beacon Hill, Boston</p>
+                    </div>
+                 </div>
+                 <div className="hidden sm:flex items-center gap-2 bg-white px-4 py-2 rounded-full border shadow-sm">
+                    <CheckCircle className="w-3 h-3 text-accent" />
+                    <span className="text-[9px] font-bold uppercase tracking-widest">Regular Service</span>
+                 </div>
               </div>
-            </motion.article>
-          )}
+           </motion.div>
 
-          {/* Small cards, alternating white & blush */}
-          {rest.slice(0, 4).map((r, i) => {
-            const isWhite = i % 2 === 0;
-            return (
-              <motion.article
-                key={i}
-                className={`md:col-span-5 ${i >= 2 ? "md:col-start-8" : ""} relative rounded-[1.75rem] p-7 md:p-8 border`}
-                style={{
-                  background: isWhite ? "white" : "hsl(var(--brand-pink) / 0.15)",
-                  borderColor: isWhite ? "hsl(var(--border))" : "hsl(var(--brand-pink) / 0.3)",
-                }}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.1 + i * 0.1, ease: [0.22, 1, 0.36, 1] }}
-                whileHover={{ y: -4 }}
-              >
-                <StarsRow delay={0.1 + i * 0.05} />
-                <p
-                  className="mt-4 text-base leading-relaxed"
-                  style={{ color: "hsl(var(--primary))", fontFamily: "var(--font-heading)", fontWeight: 300, fontStyle: "italic" }}
-                >
-                  "{r.text}"
-                </p>
-                <div className="mt-6 flex items-baseline justify-between gap-3">
-                  <p className="text-sm font-bold" style={{ color: "hsl(var(--primary))" }}>{r.name}</p>
-                  <p className="text-[0.65rem] uppercase tracking-[0.2em]" style={{ color: "hsl(var(--muted-foreground))" }}>
-                    {r.place}
-                  </p>
-                </div>
-              </motion.article>
-            );
-          })}
+           {/* Side Stack */}
+           <div className="md:col-span-12 lg:col-span-5 space-y-8">
+              {homeReviews.slice(1, 3).map((r, i) => (
+                 <motion.div
+                    key={i}
+                    className="p-10 rounded-[2.5rem] bg-white border border-border/50 hover:bg-[#FDFCFB]/50 transition-colors"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.8, delay: 0.2 + i * 0.1 }}
+                 >
+                    <div className="mb-6"><StarsRow delay={0.3} /></div>
+                    <p className="text-lg text-primary font-light italic mb-8" style={{ fontFamily: "var(--font-heading)" }}>
+                       "{r.text}"
+                    </p>
+                    <div className="flex items-center justify-between border-t border-border/30 pt-6">
+                       <h4 className="text-xs font-bold uppercase tracking-widest">{r.name}</h4>
+                       <span className="text-[9px] font-bold uppercase tracking-widest text-muted-foreground">{r.place}</span>
+                    </div>
+                 </motion.div>
+              ))}
+           </div>
         </div>
 
-        {/* CTA */}
+        {/* Final Home CTA */}
         <motion.div
-          className="text-center mt-14"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.3 }}
+           className="mt-20 text-center"
+           initial={{ opacity: 0 }}
+           whileInView={{ opacity: 1 }}
+           viewport={{ once: true }}
+           transition={{ duration: 0.8, delay: 0.5 }}
         >
-          <a
-            href="/quote"
-            className="inline-flex items-center gap-2 px-9 py-3.5 rounded-full text-sm font-semibold tracking-[0.15em] text-white transition-all hover:-translate-y-0.5"
-            style={{ background: "hsl(var(--primary))", boxShadow: "var(--shadow-soft)" }}
-          >
-            JOIN OUR HAPPY CLIENTS
-          </a>
+           <button
+              onClick={() => navigate("/testimonials")}
+               className="btn-outline px-10 py-4 text-[11px] uppercase tracking-widest font-bold hover:bg-primary hover:text-white transition-all rounded-full"
+           >
+              Experience the CNA MAIDPRO difference
+           </button>
         </motion.div>
       </div>
     </section>

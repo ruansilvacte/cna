@@ -285,17 +285,17 @@ export default function BlogSection() {
             </div>
             <div className="flex flex-col items-start md:items-end gap-4">
               <p className="text-white/70 text-sm md:text-base max-w-sm md:text-right leading-relaxed">
-                Book a free, no-obligation quote and let our team take it from here.
+                Book a free, no obligation quote and let our team take it from here.
               </p>
               <a
-                href="tel:+18135202535"
+                href="tel:9782357033"
                 className="inline-flex items-center gap-3 px-8 py-4 rounded-full text-[12px] font-bold uppercase tracking-[0.25em] transition-all duration-300 hover:scale-105"
                 style={{
                   background: "hsl(var(--brand-pink))",
                   color: "hsl(var(--brand-blue))",
                 }}
               >
-                Call (813) 520-2535 <ArrowUpRight className="w-4 h-4" />
+                Call 978.235.7033 <ArrowUpRight className="w-4 h-4" />
               </a>
             </div>
           </div>

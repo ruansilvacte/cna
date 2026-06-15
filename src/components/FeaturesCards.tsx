@@ -43,7 +43,7 @@ const defaultCards: FeatureCard[] = [
     badgeText: "Consistent Quality",
     badgeColor: "hsl(38 55% 45%)",
     title: "Consistent Quality",
-    description: "A team of 10–15 trained professionals focused on operational reliability and delivering an elevated standard every time.",
+    description: "A team of 10 to 15 trained professionals focused on operational reliability and delivering an elevated standard every time.",
     ctaText: "View services",
     ctaHref: "/services",
     imageUrl: cardQuality,
@@ -51,8 +51,8 @@ const defaultCards: FeatureCard[] = [
   {
     badgeText: "24h Guarantee",
     badgeColor: "hsl(38 55% 45%)",
-    title: "24-Hour Guarantee",
-    description: "Premium service with meticulous attention to detail. Our 24-hour guarantee reflects our commitment to your complete satisfaction.",
+    title: "24 Hour Guarantee",
+    description: "Premium service with meticulous attention to detail. Our 24 hour guarantee reflects our commitment to your complete satisfaction.",
     ctaText: "Talk to a specialist",
     ctaHref: "/quote",
     imageUrl: cardGuarantee,
@@ -115,7 +115,7 @@ export default function FeaturesCards() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.3 }}
           >
-            Proven systems, dedicated professionals, and a 24-hour satisfaction promise, because your property deserves nothing less.
+            Proven systems, dedicated professionals, and a 24 hour satisfaction promise, because your property deserves nothing less.
           </motion.p>
         </div>
 
