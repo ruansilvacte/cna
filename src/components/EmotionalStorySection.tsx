@@ -71,22 +71,6 @@ export default function EmotionalStorySection() {
               </p>
             </motion.div>
 
-            {/* Small overlay image */}
-            <motion.div
-              className="absolute -top-8 -left-6 w-40 h-40 rounded-2xl overflow-hidden shadow-xl"
-              style={{ border: "4px solid white" }}
-              initial={{ opacity: 0, scale: 0.85 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7, delay: 0.3, ease }}
-            >
-              <img
-                src="https://images.unsplash.com/photo-1484154218962-a197022b5858?w=300&q=80&auto=format"
-                alt="Clean, peaceful bedroom"
-                className="w-full h-full object-cover"
-              />
-            </motion.div>
-
             {/* Stat badge */}
             <motion.div
               className="absolute top-1/2 -right-8 -translate-y-1/2 rounded-2xl p-5 text-center shadow-xl"
