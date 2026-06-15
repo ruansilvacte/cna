@@ -3,32 +3,28 @@ import { Star, Quote, CheckCircle } from "lucide-react";
 import { useHomeContent } from "@/hooks/useHomeContent";
 import { useNavigate } from "react-router-dom";
 
-/* Boston-area reviews */
+/* Real reviews — sourced from /testimonials page */
 const homeReviews = [
   {
-    text: "I walked into my home after their first visit and just stood there. Every surface was spotless, even the places I forgot to mention. CNA MAIDPRO is something special.",
-    name: "Olivia M.",
-    place: "Boston, MA",
-    service: "Regular Cleaning",
+    text: "I can't say enough good things about this cleaning company. From the moment they arrived, it was clear that they take their work seriously. Every nook and cranny of my home was cleaned thoroughly. If you're looking for a top-notch cleaning service, I highly recommend giving them a call.",
+    name: "Fernando Henrique",
+    service: "Deep Cleaning",
     featured: true,
   },
   {
-    text: "As a Boston mom of three, I was drowning. CNA MAIDPRO gave me my weekends back. I can't put a price on that.",
-    name: "Sarah K.",
-    place: "Cambridge, MA",
-    service: "Recurring Service",
-  },
-  {
-    text: "They asked about our pets and our cleaning preferences before quoting. Felt like hiring a partner, not a vendor. Outstanding service.",
-    name: "Marcus T.",
-    place: "South End",
+    text: "Cindi cleaned our home meticulously! It smelled and looked so good. She went above and beyond our expectations. We have two dogs and a baby and our home now looks like it belongs in a magazine. Can't recommend enough!",
+    name: "Grace Bilodeau",
     service: "Regular Cleaning",
   },
   {
-    text: "Moved into a new apartment and it was rough. CNA MAIDPRO transformed it. I actually cried. It looked brand new.",
-    name: "Priya R.",
-    place: "Brookline, MA",
-    service: "Move In Cleaning",
+    text: "CNA MaidPro stands out in all five areas. They offer high quality work at a reasonable price, in a professional manner, and are attentive to our questions and always on time.",
+    name: "Jean-Paul Otin",
+    service: "Standard Cleaning",
+  },
+  {
+    text: "I am VERY pleased with the team I hired and how thorough they were. The kitchen cabinets, appliances, and bathroom all sparkled. They went above and beyond. I have used many cleaning services and they top the list.",
+    name: "Susan Campbell",
+    service: "Move In / Move Out",
   },
 ];
 
@@ -135,19 +131,13 @@ export default function TestimonialsSection() {
               <Quote className="absolute top-10 right-10 w-20 h-20 text-accent/5 group-hover:scale-110 transition-transform duration-700" />
               <StarsRow delay={0.2} />
               <p className="mt-10 text-2xl md:text-3xl leading-snug text-primary font-light mb-12" style={{ fontFamily: "var(--font-heading)" }}>
-                 "I walked into my home after their first visit and just stood there. Every surface was spotless, even the places I forgot to mention. <em className="text-accent-dark">CNA MAIDPRO is something special.</em>"
+                 "{homeReviews[0].text}"
               </p>
               <div className="flex items-center justify-between pt-10 border-t border-border/40">
-                 <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 rounded-full bg-secondary flex items-center justify-center text-primary font-bold text-lg">O</div>
-                    <div>
-                        <h4 className="font-bold text-sm uppercase tracking-wide">Olivia M.</h4>
-                        <p className="text-[10px] uppercase tracking-widest text-muted-foreground">Beacon Hill, Boston</p>
-                    </div>
-                 </div>
+                 <h4 className="font-bold text-sm uppercase tracking-wide">{homeReviews[0].name}</h4>
                  <div className="hidden sm:flex items-center gap-2 bg-white px-4 py-2 rounded-full border shadow-sm">
                     <CheckCircle className="w-3 h-3 text-accent" />
-                    <span className="text-[9px] font-bold uppercase tracking-widest">Regular Service</span>
+                    <span className="text-[9px] font-bold uppercase tracking-widest">{homeReviews[0].service}</span>
                  </div>
               </div>
            </motion.div>
@@ -169,7 +159,7 @@ export default function TestimonialsSection() {
                     </p>
                     <div className="flex items-center justify-between border-t border-border/30 pt-6">
                        <h4 className="text-xs font-bold uppercase tracking-widest">{r.name}</h4>
-                       <span className="text-[9px] font-bold uppercase tracking-widest text-muted-foreground">{r.place}</span>
+                       <span className="text-[9px] font-bold uppercase tracking-widest text-muted-foreground">{r.service}</span>
                     </div>
                  </motion.div>
               ))}

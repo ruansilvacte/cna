@@ -10,7 +10,8 @@ const navLinks = [
   { label: "About", href: "/about" },
   { label: "Services", href: "/services", hasDropdown: true },
   { label: "Testimonials", href: "/testimonials" },
-  { label: "Work For Us", href: "/careers" },
+  { label: "Blog", href: "/blog" },
+  { label: "Gift Cards", href: "/gift-card" },
   { label: "FAQ", href: "/faq" },
   { label: "Contact", href: "/contact" },
 ];

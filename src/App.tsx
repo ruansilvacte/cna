@@ -42,6 +42,8 @@ import ServiceAreasPage from "./pages/ServiceAreas";
 import Contact from "./pages/Contact";
 import Testimonials from "./pages/Testimonials";
 import ThankYou from "./pages/ThankYou";
+import CustomerGuidelines from "./pages/CustomerGuidelines";
+import GiftCard from "./pages/GiftCard";
 
 const queryClient = new QueryClient();
 
@@ -73,6 +75,8 @@ const App = () => (
             <Route path="/privacy-security" element={<PrivacySecurityPolicy />} />
             <Route path="/quote" element={<Quote />} />
             <Route path="/thank-you" element={<ThankYou />} />
+            <Route path="/customer-guidelines" element={<CustomerGuidelines />} />
+            <Route path="/gift-card" element={<GiftCard />} />
 
             {/* Admin routes */}
             <Route path="/admin/login" element={<AdminLogin />} />
