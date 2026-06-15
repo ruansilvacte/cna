@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
-import { Phone } from "lucide-react";
+import { MessageCircle } from "lucide-react";
 import AIChatWidget from "./AIChatWidget";
+
+const WHATSAPP_URL = "https://wa.me/19782357033?text=Hello%20CNA%20MAIDPRO%2C%20I%27d%20like%20a%20quote.";
 
 export default function FloatingSocial() {
   return (
@@ -25,19 +27,23 @@ export default function FloatingSocial() {
           </svg>
         </motion.a>
 
-        {/* Call Now */}
+        {/* WhatsApp (using brand blue, not WhatsApp green) */}
         <motion.div
           initial={{ scale: 0, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ delay: 1.2, type: "spring", stiffness: 200 }}
         >
           <a
-            href="tel:9782357033"
+            href={WHATSAPP_URL}
+            target="_blank"
+            rel="noopener noreferrer"
             className="w-12 h-12 md:w-14 md:h-14 rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform"
-            style={{ background: "hsl(var(--primary))" }}
-            aria-label="Call Now"
+            style={{ background: "hsl(var(--cna-navy))" }}
+            aria-label="Chat on WhatsApp"
           >
-            <Phone className="w-6 h-6 md:w-7 md:h-7 text-white" />
+            <svg viewBox="0 0 32 32" className="w-6 h-6 md:w-7 md:h-7" fill="white" aria-hidden="true">
+              <path d="M19.11 17.205c-.372 0-1.088 1.39-1.518 1.39a.63.63 0 01-.315-.1c-.802-.402-1.504-.817-2.163-1.447-.545-.516-1.146-1.29-1.46-1.963a.426.426 0 01-.073-.215c0-.33.99-.945.99-1.49 0-.143-.73-2.09-.832-2.335-.143-.372-.214-.487-.6-.487-.187 0-.36-.043-.53-.043-.302 0-.53.115-.737.315-.688.645-1.032 1.318-1.06 2.264v.114c-.015.99.472 1.977 1.017 2.78 1.23 1.82 2.506 3.41 4.554 4.34.616.287 2.035.917 2.708.917.343 0 1.39-.276 1.39-.66 0-.43-.34-.802-.71-.802zM16.04 26.69c-1.86 0-3.715-.487-5.34-1.41l-3.84.99 1.03-3.76A10.69 10.69 0 015.34 16.06C5.34 10.16 10.14 5.36 16.04 5.36S26.74 10.16 26.74 16.06 21.94 26.69 16.04 26.69zM16.04 3.21C9 3.21 3.21 9.04 3.21 16.06c0 2.05.5 4.06 1.452 5.86L2.21 28.69l6.91-1.95a12.93 12.93 0 006.92 1.95c7.04 0 12.83-5.79 12.83-12.83S23.08 3.21 16.04 3.21z" />
+            </svg>
           </a>
         </motion.div>
       </div>
