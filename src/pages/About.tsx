@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import FloatingCallButton from "@/components/FloatingCallButton";
+import FloatingSocial from "@/components/FloatingSocial";
 import SeoHead from "@/components/SeoHead";
 import { ArrowRight, Phone, MapPin } from "lucide-react";
 
@@ -313,7 +313,7 @@ export default function About() {
       </section>
 
       <Footer />
-      <FloatingCallButton />
+      <FloatingSocial />
     </div>
   );
 }

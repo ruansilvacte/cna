@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import FloatingCallButton from "@/components/FloatingCallButton";
+import FloatingSocial from "@/components/FloatingSocial";
 import SeoHead from "@/components/SeoHead";
 import { ArrowRight, Phone, CheckCircle2, ShieldCheck, Sparkles, Building2, Home, Star, PlusCircle } from "lucide-react";
 
@@ -214,7 +214,7 @@ export default function Services() {
       </section>
 
       <Footer />
-      <FloatingCallButton />
+      <FloatingSocial />
     </div>
   );
 }

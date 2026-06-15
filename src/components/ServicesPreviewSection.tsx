@@ -27,19 +27,18 @@ const fallbackServices = [
     image: "/images/move-in.jpg",
     description: "A stress free transition. Whether arriving or departing, we ensure your Boston home is immaculate and ready.",
   },
-  {
-    id: "4",
-    slug: "airbnb-cleaning",
-    title: "Airbnb Turnover",
-    image: "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=700&q=85&auto=format&fit=crop",
-    description: "Lightning fast, hotel quality turnovers that protect your 5 star rating and delight every guest.",
-  },
 ];
+
+const isExcludedService = (s: { slug?: string; title?: string }) => {
+  const v = `${s.slug ?? ""} ${s.title ?? ""}`.toLowerCase();
+  return v.includes("airbnb") || v.includes("short") || v.includes("turnover") || v.includes("rental");
+};
 
 export default function ServicesPreviewSection() {
   const navigate = useNavigate();
   const { data: dbServices } = useServices();
-  const services = dbServices?.length ? dbServices : fallbackServices;
+  const sourceServices = dbServices?.length ? dbServices : fallbackServices;
+  const services = sourceServices.filter((s) => !isExcludedService(s)).slice(0, 3);
 
   return (
     <section
@@ -136,82 +135,40 @@ export default function ServicesPreviewSection() {
             </motion.div>
           )}
 
-          {/* Right column — 7 cols, stacked */}
+          {/* Right column — 7 cols, stacked 2 cards full height */}
           <div className="lg:col-span-7 grid grid-rows-2 gap-4 md:gap-5">
-            {/* Top row — 2 medium cards */}
-            <div className="grid md:grid-cols-2 gap-4 md:gap-5">
-              {services.slice(1, 3).map((service, i) => (
-                <motion.div
-                  key={service.id}
-                  className="group relative rounded-3xl overflow-hidden cursor-pointer"
-                  style={{ aspectRatio: "4/3" }}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-40px" }}
-                  transition={{ duration: 0.6, delay: (i + 1) * 0.1, ease }}
-                  onClick={() => navigate(`/services/${service.slug}`)}
-                >
-                  <img
-                    loading="lazy"
-                    decoding="async"
-                    src={service.image}
-                    alt={service.title}
-                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  />
-                  <div
-                    className="absolute inset-0"
-                    style={{ background: "linear-gradient(180deg, transparent 30%, hsl(218 55% 10% / 0.88) 100%)" }}
-                  />
-                  <div className="absolute inset-0 flex flex-col justify-end p-6">
-                    <h3 className="text-white font-bold text-lg leading-tight mb-2" style={{ fontFamily: "var(--font-heading)" }}>
-                      {service.title}
-                    </h3>
-                    <div className="flex items-center gap-1.5 text-white/70 text-xs font-bold uppercase tracking-wider group-hover:gap-2.5 transition-all">
-                      <span>Learn more</span>
-                      <ArrowRight className="w-3 h-3" />
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-
-            {/* Bottom card — wide */}
-            {services[3] && (
+            {services.slice(1, 3).map((service, i) => (
               <motion.div
+                key={service.id}
                 className="group relative rounded-3xl overflow-hidden cursor-pointer"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-40px" }}
-                transition={{ duration: 0.6, delay: 0.3, ease }}
-                onClick={() => navigate(`/services/${services[3].slug}`)}
+                transition={{ duration: 0.6, delay: (i + 1) * 0.1, ease }}
+                onClick={() => navigate(`/services/${service.slug}`)}
               >
                 <img
                   loading="lazy"
                   decoding="async"
-                  src={services[3].image}
-                  alt={services[3].title}
+                  src={service.image}
+                  alt={service.title}
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
                 <div
                   className="absolute inset-0"
-                  style={{ background: "linear-gradient(120deg, hsl(218 55% 10% / 0.80) 0%, hsl(148 40% 15% / 0.40) 100%)" }}
+                  style={{ background: "linear-gradient(180deg, transparent 30%, hsl(218 55% 10% / 0.88) 100%)" }}
                 />
-                <div className="absolute inset-0 flex flex-col justify-end p-7 md:flex-row md:items-end md:justify-between">
-                  <div>
-                    <span className="text-[0.6rem] font-bold uppercase tracking-[0.22em] mb-2 block" style={{ color: "hsl(var(--cna-sage-light))" }}>
-                      Featured Service
-                    </span>
-                    <h3 className="text-white font-bold text-xl leading-tight" style={{ fontFamily: "var(--font-heading)" }}>
-                      {services[3].title}
-                    </h3>
-                  </div>
-                  <div className="mt-4 md:mt-0 flex items-center gap-2 text-white/80 text-xs font-bold uppercase tracking-wider group-hover:gap-3 transition-all">
-                    <span>Explore</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
+                <div className="absolute inset-0 flex flex-col justify-end p-7">
+                  <h3 className="text-white font-bold text-xl leading-tight mb-2" style={{ fontFamily: "var(--font-heading)" }}>
+                    {service.title}
+                  </h3>
+                  <div className="flex items-center gap-1.5 text-white/70 text-xs font-bold uppercase tracking-wider group-hover:gap-2.5 transition-all">
+                    <span>Learn more</span>
+                    <ArrowRight className="w-3 h-3" />
                   </div>
                 </div>
               </motion.div>
-            )}
+            ))}
           </div>
         </div>
 

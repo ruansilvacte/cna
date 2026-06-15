@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import FloatingCallButton from "@/components/FloatingCallButton";
+import FloatingSocial from "@/components/FloatingSocial";
 import SeoHead from "@/components/SeoHead";
 import { MapPin, Phone, ArrowRight, ShieldCheck, Star } from "lucide-react";
 import { useServiceAreas } from "@/hooks/useServiceAreas";
@@ -173,7 +173,7 @@ export default function ServiceAreas() {
       </section>
 
       <Footer />
-      <FloatingCallButton />
+      <FloatingSocial />
     </div>
   );
 }

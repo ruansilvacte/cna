@@ -179,7 +179,7 @@ export default function LeadFormModal({ open, onClose, preselectedServiceId }: P
                   <Field label="Name *" error={errors.name}>
                     <input
                       type="text"
-                      placeholder="Your full name"
+                      placeholder="Your Name"
                       value={fields.name}
                       onChange={set("name")}
                       className={inputCls(!!errors.name)}

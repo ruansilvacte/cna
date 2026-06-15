@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import FloatingCallButton from "@/components/FloatingCallButton";
+import FloatingSocial from "@/components/FloatingSocial";
 import SeoHead from "@/components/SeoHead";
 import { Gift, RefreshCw, Sparkles, ArrowRight, Tag } from "lucide-react";
 
@@ -125,7 +125,7 @@ export default function Promotions() {
       </section>
 
       <Footer />
-      <FloatingCallButton />
+      <FloatingSocial />
     </div>
   );
 }

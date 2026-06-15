@@ -8,11 +8,7 @@ const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
 const serviceOptions = [
   "Regular Cleaning",
   "Deep Cleaning",
-  "Airbnb / Short-Term Rental",
   "Move In / Move Out",
-  "Commercial Cleaning",
-  "Post-Construction",
-  "Other",
 ];
 
 export default function HomepageQuoteForm() {
@@ -132,7 +128,7 @@ export default function HomepageQuoteForm() {
                     <input
                       type="text"
                       required
-                      placeholder="Your name"
+                      placeholder="Your Name"
                       value={form.name}
                       onChange={(e) => set("name", e.target.value)}
                       className="w-full pl-11 pr-4 py-3.5 rounded-2xl border border-border bg-secondary/30 text-sm font-medium placeholder:text-muted-foreground/60 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary/50 transition-all"

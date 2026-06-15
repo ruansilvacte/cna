@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { ArrowRight, Heart, Clock, Home } from "lucide-react";
+import whyVideo from "@/assets/why.mp4.asset.json";
 
 const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
@@ -40,11 +41,15 @@ export default function EmotionalStorySection() {
             viewport={{ once: true }}
             transition={{ duration: 0.9, ease }}
           >
-            {/* Main image */}
-            <div className="rounded-[3rem] overflow-hidden" style={{ aspectRatio: "4/3" }}>
-              <img
-                src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=900&q=85&auto=format&fit=crop"
-                alt="Bright, welcoming kitchen in a Boston home"
+            {/* Main video */}
+            <div className="rounded-[3rem] overflow-hidden bg-black" style={{ aspectRatio: "4/3" }}>
+              <video
+                src={whyVideo.url}
+                autoPlay
+                loop
+                muted
+                playsInline
+                preload="metadata"
                 className="w-full h-full object-cover"
               />
             </div>

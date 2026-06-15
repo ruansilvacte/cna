@@ -5,7 +5,7 @@ import { z } from "zod";
 import { supabase } from "@/integrations/supabase/client";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import FloatingCallButton from "@/components/FloatingCallButton";
+import FloatingSocial from "@/components/FloatingSocial";
 import SeoHead from "@/components/SeoHead";
 import { Phone, Mail, Instagram, Clock, MapPin, Facebook, Loader2, AlertCircle, Send, CheckCircle2 } from "lucide-react";
 
@@ -220,7 +220,7 @@ export default function Contact() {
                     value={fields.name} 
                     onChange={set("name")} 
                     className={`w-full px-5 py-4 rounded-2xl border bg-secondary/30 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all ${errors.name ? "border-destructive" : "border-border"}`}
-                    placeholder="John Smith" 
+                    placeholder="Your Name" 
                   />
                   {errors.name && <p className="text-xs text-destructive mt-2 pl-1">{errors.name}</p>}
                 </div>
@@ -324,7 +324,7 @@ export default function Contact() {
       </section>
 
       <Footer />
-      <FloatingCallButton />
+      <FloatingSocial />
     </div>
   );
 }
