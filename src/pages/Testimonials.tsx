@@ -165,20 +165,7 @@ export default function Testimonials() {
 
                   {/* Reviewer info */}
                   <div className="pt-8 border-t border-border/40 flex items-center justify-between gap-4">
-                    <div className="flex items-center gap-3">
-                      <div className="w-11 h-11 rounded-full overflow-hidden border-2 border-white shadow-md shrink-0">
-                        <img 
-                          src={r.avatar} 
-                          alt={r.name} 
-                          className="w-full h-full object-cover"
-                          loading="lazy"
-                        />
-                      </div>
-                      <div>
-                        <h4 className="font-bold text-sm text-primary tracking-wide leading-none mb-1">{r.name}</h4>
-                        <p className="text-[10px] font-semibold text-muted-foreground">{r.badge}</p>
-                      </div>
-                    </div>
+                    <h4 className="font-bold text-sm text-primary tracking-wide">{r.name}</h4>
                     <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-border/40 shadow-sm transition-transform group-hover:scale-105 shrink-0">
                        <CheckCircle className="w-3 h-3 text-accent" />
                        <span className="text-[9px] font-bold uppercase tracking-wider text-primary/70">{r.service}</span>
