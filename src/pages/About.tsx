@@ -117,7 +117,7 @@ export default function About() {
               <div className="relative">
                 <div className="rounded-[3rem] overflow-hidden shadow-[0_24px_80px_-20px_hsl(218_52%_22%/0.18)]" style={{ aspectRatio: "4/5" }}>
                   <img
-                    src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=85&auto=format&fit=crop"
+                    src="" + aboutLiving.url + ""
                     alt="Cindi and the CNA MAIDPRO family team in Boston"
                     className="w-full h-full object-cover"
                   />
@@ -199,7 +199,7 @@ export default function About() {
                 tag: "Quality of Time",
                 headline: "We give you back what matters most.",
                 body: "Our mission is rooted in a simple truth: the most valuable luxury isn't a clean home. It's the time you get to spend with the people you love. Every visit by CNA MAIDPRO is an investment in your family's quality of life. We handle the scrubbing so you can handle the living.",
-                image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=700&q=85&auto=format&fit=crop",
+                image: "" + aboutKitchen.url + "",
                 imageAlt: "Bright Boston living room filled with natural light",
                 reverse: false,
               },
@@ -207,7 +207,7 @@ export default function About() {
                 tag: "Trust Earned Daily",
                 headline: "We enter your home. That's sacred.",
                 body: "We understand the weight of the trust you place in us. When you hand us your keys or let us into your space, you're trusting our team with your most personal environment. We honor that every single day through background checks, respect, communication, and consistency.",
-                image: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=700&q=85&auto=format&fit=crop",
+                image: "" + aboutLiving.url + "",
                 imageAlt: "Professional team caring for a Boston family home",
                 reverse: true,
               },
@@ -215,7 +215,7 @@ export default function About() {
                 tag: "Harmony in Every Visit",
                 headline: "A clean home is so much more.",
                 body: "We don't just deliver a clean house, we restore harmony. There's a feeling you get when you walk into a home that's been truly cared for. The air feels lighter. The space feels bigger. That specific calm is what we create for Boston families, visit after visit.",
-                image: "https://images.unsplash.com/photo-1484154218962-a197022b5858?w=700&q=85&auto=format&fit=crop",
+                image: "" + aboutInterior.url + "",
                 imageAlt: "Peaceful, welcoming home interior in Boston",
                 reverse: false,
               },
