@@ -9,119 +9,159 @@ export interface BlogPost {
   content: string[];
 }
 
+const HERO_BENEFITS =
+  "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&q=85&auto=format&fit=crop";
+const HERO_ROUTINE =
+  "https://images.unsplash.com/photo-1505691938895-1758d7feb511?w=1200&q=85&auto=format&fit=crop";
+const HERO_FAMILY =
+  "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1200&q=85&auto=format&fit=crop";
+const HERO_KITCHEN =
+  "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1200&q=85&auto=format&fit=crop";
+const HERO_LIVING =
+  "https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=1200&q=85&auto=format&fit=crop";
+const HERO_PETS =
+  "https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=1200&q=85&auto=format&fit=crop";
+
 export const posts: BlogPost[] = [
   {
-    slug: "how-to-keep-your-home-spotless",
-    image: "/images/blog-1.png",
-    category: "Home Care",
-    date: "Apr 5, 2026",
-    readTime: "4 min read",
-    title: "How to Keep Your Home Spotless Between Deep Cleans",
-    excerpt:
-      "Keeping your home clean and organized between deep cleans may seem challenging, but with simple habits you can achieve consistent results.",
-    content: [
-      "Keeping your home clean and organized between deep cleans may seem like a challenge, but with simple habits, you can achieve consistent results every day.",
-      "Start by establishing daily routines, make your bed every morning, wash dishes right after meals, and wipe down visible surfaces. These small actions take just minutes but make a massive difference in how your home looks and feels throughout the week.",
-      "Invest in organizers and storage boxes to reduce clutter. When everything has a designated place, maintaining cleanliness becomes almost effortless. A tidy space also reduces stress and creates a more welcoming environment for your family and guests.",
-      "Focus on high-traffic areas like the kitchen, living room, and bathrooms. A quick daily wipe-down of countertops, sinks, and stovetops prevents grime from building up and makes each professional deep clean faster and more efficient.",
-      "Don't forget about floors, a quick sweep or vacuum every other day keeps dust and allergens at bay. For homes with pets, daily vacuuming of main areas is highly recommended.",
-      "With these simple actions, each deep clean by CNA MAIDPRO will be quicker, more thorough, and more cost-effective. Your home stays fresher longer, and you enjoy a consistently beautiful living space.",
-    ],
-  },
-  {
-    slug: "clean-airbnb-guest-satisfaction",
-    image: "/images/blog-2.png",
-    category: "Airbnb Tips",
-    date: "Mar 28, 2026",
-    readTime: "5 min read",
-    title: "Clean Airbnb: How to Guarantee Guest Satisfaction",
-    excerpt:
-      "A guest's experience starts with the look and hygiene of your property. A clean, fresh space increases positive reviews and ensures repeat bookings.",
-    content: [
-      "A guest's experience begins the moment they walk through the door. The visual impact and hygiene of your property set the tone for their entire stay, and directly influence their review.",
-      "A spotless, fresh smelling space dramatically increases positive reviews and ensures repeat bookings. In the competitive short term rental market, cleanliness is your strongest competitive advantage.",
-      "Prioritize key areas that guests notice first: bathrooms must be immaculate, kitchens should be grease free and organized, and beds need to feel hotel quality with crisp, fresh linens and perfectly folded towels.",
-      "Small details make all the difference, place a subtle air freshener, organize personal amenities neatly, and ensure every light switch, remote, and handle is sanitized. These touches transform a good stay into a five star experience.",
-      "Consistency is critical for Airbnb hosts. Every turnover must meet the same high standard, regardless of how quickly it needs to happen. This is where a professional cleaning partner like CNA MAIDPRO becomes invaluable.",
-      "Our Airbnb cleaning service follows a detailed, standardized checklist designed to deliver a 'guest ready' experience every single time, helping you earn more five star reviews and build a stronger rental business.",
-    ],
-  },
-  {
-    slug: "deep-clean-vs-quick-clean",
-    image: "/images/blog-3.png",
-    category: "Tips & Tricks",
-    date: "Mar 15, 2026",
-    readTime: "4 min read",
-    title: "Deep Clean vs. Quick Clean: What's the Difference?",
-    excerpt:
-      "A quick clean removes visible dirt and keeps the space presentable, while a deep clean eliminates germs, accumulated dust, and hidden grime.",
-    content: [
-      "Understanding the difference between a quick clean and a deep clean is essential for maintaining a healthy, beautiful home, and knowing when you need each one.",
-      "A quick clean focuses on surface level tidiness: wiping counters, vacuuming visible floors, cleaning mirrors, and organizing clutter. It keeps your space presentable and is ideal for weekly maintenance between professional visits.",
-      "A deep clean, on the other hand, goes far beyond the surface. It targets hidden dirt, bacteria, dust buildup in hard to reach areas, grout lines, behind appliances, inside cabinets, and under furniture. It's a thorough restoration of your space.",
-      "Both types of cleaning serve important purposes. Quick cleans maintain your daily routine and keep your home looking good. Deep cleans, done periodically, preserve the health of your environment and extend the life of your surfaces, carpets, and fixtures.",
-      "For most homes, we recommend a deep clean every 3 to 4 months, with regular maintenance cleans in between. For Airbnb properties with frequent turnovers, a more intensive approach may be needed.",
-      "At CNA MAIDPRO, we offer both levels of service, customized to your property's needs. Whether it's a fast turnover clean or a comprehensive deep clean, we deliver consistent, high-quality results every time, backed by our 24 hour satisfaction guarantee.",
-    ],
-  },
-  {
-    slug: "essential-cleaning-products-every-room",
-    image: "/images/blog-4.png",
-    category: "Home Care",
-    date: "Mar 1, 2026",
-    readTime: "3 min read",
-    title: "Essential Cleaning Products for Every Room in Your Home",
-    excerpt:
-      "Having the right products makes your cleaning routine much easier. Here's what you need for each room to keep your home spotless.",
-    content: [
-      "Having the right cleaning products for each room makes your routine significantly easier and more effective. Here's a simple guide to what works best in every area of your home.",
-      "Kitchen, Use disinfectants and multi purpose cleaners for countertops and stovetops. A degreaser is essential for range hoods and backsplashes. Don't forget a dedicated stainless steel cleaner for appliances and a food safe sanitizer for cutting boards.",
-      "Bathroom, Anti mold and anti limescale products are your best friends here. Use a toilet bowl cleaner with disinfecting properties, a glass cleaner for mirrors and shower doors, and grout specific cleaners for tile lines.",
-      "Living Areas & Bedrooms, For wood furniture and delicate surfaces, use soft microfiber cloths and specialized wood polish. A good all purpose dusting spray works wonders on shelves, baseboards, and light fixtures.",
-      "Organize your products in cleaning caddies or designated shelves for easy access. Having everything ready and within reach makes cleaning faster and ensures you won't skip important steps.",
-      "Pro tip: invest in quality microfiber cloths, they clean more effectively, reduce chemical usage, and are reusable. At CNA MAIDPRO, we use professional grade, eco friendly products that deliver superior results while being safe for your family and pets.",
-    ],
-  },
-  {
-    slug: "sustainable-cleaning-habits",
-    image: "/images/blog-5.png",
-    category: "Tips & Tricks",
-    date: "Feb 15, 2026",
-    readTime: "4 min read",
-    title: "Turning Cleaning Into a Sustainable Habit",
-    excerpt:
-      "Cleaning doesn't have to be exhausting. Transform simple habits into routines that keep your home spotless while reducing waste.",
-    content: [
-      "Cleaning doesn't have to be exhausting or wasteful. By transforming simple habits into a sustainable routine, you can keep your home spotless while reducing your environmental footprint.",
-      "Start by replacing disposable products with reusable alternatives, microfiber cloths, washable mop pads, and refillable spray bottles significantly cut down on waste and save money over time.",
-      "Choose eco friendly cleaning products whenever possible. Many effective cleaners are now plant based, biodegradable, and free of harsh chemicals. They're safer for your family, your pets, and the environment.",
-      "Create a fixed cleaning schedule with small daily tasks instead of marathon cleaning sessions. Spending 10 to 15 minutes each day on targeted areas prevents buildup and makes the process feel manageable rather than overwhelming.",
-      "Water conservation matters too, use spray bottles instead of running water for surface cleaning, and only fill mop buckets as much as you need. Small changes add up to significant savings over time.",
-      "Sustainability and organization go hand in hand. At CNA MAIDPRO, we're committed to using environmentally responsible products and efficient processes. Together, we can keep your home beautiful while caring for the planet.",
-    ],
-  },
-  {
-    slug: "pet-friendly-home-care-guide",
-    image: "/images/blog-6.jpg",
-    category: "Pet Care",
-    date: "May 12, 2026",
+    slug: "why-professional-cleaning-is-worth-it",
+    image: HERO_BENEFITS,
+    category: "Benefits of Hiring Professional Cleaning Services",
+    date: "Jun 10, 2026",
     readTime: "6 min read",
-    title: "Pet Friendly Home Care: The Complete Guide for Loving Pet Parents",
+    title: "Why Hiring a Professional Cleaning Service Is Worth Every Dollar",
     excerpt:
-      "Sharing your home with pets is pure joy. With the right routines and pet safe products, you can keep every room fresh, hygienic, and beautiful without compromising your furry friends' wellbeing.",
+      "Between work, school runs and weekend plans, Boston families rarely have a full afternoon to scrub baseboards. A professional team gives you that time back, and a healthier home along the way.",
     content: [
-      "Pets fill our homes with love, but also with shedding fur, muddy paw prints, the occasional accident, and that unmistakable 'pet smell' that builds up before we notice. The good news is that a truly clean, fresh home and a happy pet are not opposites. They thrive together with the right routines and the right products.",
-      "Choose pet safe cleaning products always. Many common household cleaners contain ammonia, bleach, phenols, or essential oils like tea tree, pine, and citrus that can be toxic to dogs and cats, especially through paw contact and licking. Look for plant based, fragrance free, enzyme based formulas labeled pet safe. When in doubt, a simple mix of warm water, white vinegar, and a drop of mild dish soap handles most surfaces beautifully.",
-      "Master shedding with the right tools. Vacuum high-traffic areas every other day using a vacuum designed for pet hair with a HEPA filter. Microfiber mops and rubber pet hair brooms pick up fur that traditional brooms scatter. Wash pet beds, blankets, and removable couch covers weekly on a hot cycle to control dander and allergens.",
-      "Tackle accidents the smart way. Time matters. Blot fresh stains immediately with paper towels, never rub, then treat with an enzymatic cleaner that breaks down odor molecules at the source. Avoid ammonia based products on urine stains, the scent signals pets to mark the same spot again. Always test on a hidden area first, especially on natural fibers, wool rugs, and hardwood.",
-      "Protect your floors. Place washable mats by every entrance and keep a soft microfiber towel near the door for muddy paws. Trim nails regularly to prevent scratches on hardwood and luxury vinyl. For tile and stone, rinse with plain water often, harsh cleaners build up residue that irritates sensitive paws.",
-      "Create a dedicated pet zone. A consistent spot for food, water, toys, and grooming supplies keeps mess contained and makes daily cleanup faster. Use a silicone mat under bowls, wash them daily with hot water and pet-safe soap, and rotate toys through the dishwasher or a vinegar soak weekly.",
-      "Mind the air you all breathe. Pets share your indoor environment 24/7. Change HVAC filters every 30 to 45 days, run a HEPA air purifier in main living areas, open windows daily for fresh airflow, and skip plug in air fresheners and scented candles, many contain compounds that irritate pet respiratory systems.",
-      "Watch out for hidden hazards. Keep cleaning supplies, laundry pods, and trash bins behind closed doors. Common houseplants like lilies, pothos, sago palm, and aloe are toxic to cats and dogs. Cords, small decor, and rugs with loose threads can become chew or choking risks for curious pets.",
-      "Schedule professional deep cleans. Even with the best daily habits, pet homes accumulate dander, fur, and odors in places household tools cannot reach, under furniture, inside vents, deep in upholstery, and along baseboards. A professional deep clean every two to three months resets your home to truly fresh.",
-      "At CNA MAIDPRO, we love pet families. Our team uses pet safe, low residue products, follows protocols designed for homes with dogs, cats, and other companions, and treats every fur baby like our own. Your home stays luxurious, your pets stay safe, and you get to enjoy more cuddle time and less cleaning time.",
+      "For most Boston families, the question isn't whether the house needs cleaning. It's when. Between commutes on the T, school pickups in Brookline, and weekend soccer in Brighton, the chores end up squeezed into Sunday night and nothing ever feels truly done.",
+      "Hiring a professional cleaning service flips that equation. Instead of trading family time for chores, you trade a predictable monthly cost for several free hours every week. For dual income households especially, the math almost always works in favor of bringing in help.",
+      "The health benefits are just as real. Trained cleaners reach the places most homeowners skip, such as inside vents, behind appliances, along baseboards, and on top of cabinets. That deep work removes the dust, dander and bacteria responsible for most indoor allergies.",
+      "A consistent professional team also protects the home itself. Sealed hardwoods, marble counters and high quality fabrics all last longer when they're cleaned with the right products and the right technique. One wrong cleaner on a stone counter can leave a stain that costs thousands to repair.",
+      "There's also a quieter benefit families talk about often: peace of mind. Walking into a fresh home after a long day at the office lowers stress, improves sleep, and turns evenings into something you actually enjoy.",
+      "At CNA MAIDPRO we treat every visit like we're caring for a friend's home. Same trained team, same checklist, same standard. That's why our Boston clients stay with us for years.",
+    ],
+  },
+  {
+    slug: "what-to-expect-first-cleaning-visit",
+    image: HERO_KITCHEN,
+    category: "Benefits of Hiring Professional Cleaning Services",
+    date: "Jun 2, 2026",
+    readTime: "5 min read",
+    title: "What to Expect From Your First Professional Cleaning Visit",
+    excerpt:
+      "A clear, honest walkthrough of how the first visit works, from the moment we arrive to the final walkthrough, so there are no surprises.",
+    content: [
+      "The first cleaning visit is always a little different. Our team needs time to understand your home, your preferences and the small details that make your space feel right.",
+      "We start with a quick walkthrough. You point out anything sensitive, such as a wood floor that needs a specific product, a guest room not in use, or a corner where the cat likes to nap. We listen and adjust the plan.",
+      "Then comes the deep first clean. Even on a standard service, the first visit always takes longer because we're resetting the home, removing buildup, and establishing the baseline that future visits will simply maintain.",
+      "Throughout the visit, our lead technician keeps you updated. If we discover an area that needs more time, you decide whether to extend the visit or add it to the next one. There are never surprise charges.",
+      "Before we leave, we walk the home with you, or send a photo summary if you're at work. Anything you'd like adjusted goes into your client profile so the team handles it automatically next time.",
+      "The result is a service that gets better with every visit. By the third clean, your home and our team are in perfect rhythm.",
+    ],
+  },
+  {
+    slug: "weekly-home-routine-that-actually-sticks",
+    image: HERO_ROUTINE,
+    category: "Organization and Home Routine Guides",
+    date: "May 28, 2026",
+    readTime: "7 min read",
+    title: "A Weekly Home Routine That Actually Sticks (Even With a Full Calendar)",
+    excerpt:
+      "Forget Pinterest perfect schedules. This is the realistic seven day rhythm Boston families use to keep their home calm without losing their weekends.",
+    content: [
+      "The biggest reason home routines fail isn't laziness, it's ambition. Most schedules pack two hours of cleaning into a single day and collapse the moment a kid gets sick or a work deadline lands.",
+      "A routine that lasts spreads the work across the week in tiny, almost invisible blocks. Ten minutes on Monday, fifteen on Wednesday, a slow Sunday reset. Done consistently, that's all most homes need between deep cleans.",
+      "Start by mapping the week to natural moments. The kitchen gets a quick reset every night while dishes run. Laundry happens on the two days you'd normally be home anyway. Bathrooms get a five minute wipe right before bed on Tuesday and Friday.",
+      "Use the 'one room, one timer' rule for tougher tasks. Set fifteen minutes, pick one room, work fast. Stop when the timer ends, even if the job isn't finished. Speed beats perfection, and you'll come back to it the next week.",
+      "Build in a weekly reset, usually Sunday morning. Wipe high touch surfaces, change linens, vacuum main floors, take the trash out. This forty five minute ritual is the anchor that keeps everything else manageable.",
+      "Finally, schedule the things you'll never do on your own. Oven, baseboards, inside fridge, window tracks. That's exactly where a recurring professional clean shines, so your daily routine never has to carry the heavy lifting.",
+      "Families who follow this rhythm report something surprising: the house feels calmer, but they also spend less total time cleaning. Routine, not effort, is what creates a peaceful home.",
+    ],
+  },
+  {
+    slug: "small-space-organization-boston-apartments",
+    image: HERO_LIVING,
+    category: "Organization and Home Routine Guides",
+    date: "May 18, 2026",
+    readTime: "6 min read",
+    title: "Smart Organization Ideas for Small Boston Apartments",
+    excerpt:
+      "From Beacon Hill brownstones to South End walk ups, small footprints don't have to feel cluttered. These are the storage moves that genuinely change daily life.",
+    content: [
+      "Boston living often means charming square footage with limited storage. The good news is that small homes, organized well, can feel far more luxurious than oversized ones drowning in stuff.",
+      "Start at the entry. A narrow console with a single drawer, two hooks above and a tray for keys eliminates the daily pile that takes over every Boston apartment. Five minutes of design, hours of weekly sanity.",
+      "In the kitchen, go vertical. Magnetic knife strips, hanging produce baskets, and a pegboard for pots free up counter space instantly. Inside cabinets, two tier shelves double your usable area.",
+      "Closets benefit from the 'one in, one out' rule. Every new sweater means one leaves the home. Combined with slim velvet hangers, even a single brownstone closet can fit a full wardrobe without wrinkles.",
+      "For living areas, choose furniture that works twice. Storage ottomans, lift top coffee tables, and beds with drawers underneath are the difference between a tidy apartment and a constant battle with clutter.",
+      "The final piece is maintenance. A ten minute weekly reset, paired with a monthly purge of one drawer or one shelf, keeps small homes feeling open and intentional for years.",
+    ],
+  },
+  {
+    slug: "decluttering-without-burnout",
+    image: HERO_INTERIOR_PLACEHOLDER(),
+    category: "Organization and Home Routine Guides",
+    date: "May 6, 2026",
+    readTime: "5 min read",
+    title: "Decluttering Without the Burnout: A Realistic Method",
+    excerpt:
+      "You don't need a weekend marathon. The slow drawer method removes clutter quietly, without ever filling your living room with bags of decisions.",
+    content: [
+      "Most decluttering advice assumes you have a free Saturday and the emotional bandwidth to make hundreds of decisions in a row. Real life rarely cooperates.",
+      "The slow drawer method works differently. Choose one drawer, one shelf, or one small surface per day. Spend ten minutes. Make decisions only about what's in front of you. Move on.",
+      "Use three simple piles: keep, donate, trash. Skip the 'maybe' pile entirely, it's where clutter goes to hide. If you're unsure, default to donate, you'll rarely miss it.",
+      "Keep a permanent donation bag near the closet. The moment something is no longer useful, it goes in the bag. When the bag is full, it goes to a drop off the next time you're driving anyway.",
+      "Set one rule for incoming items: each new piece of clothing, kitchenware or decor replaces something already in the home. This single habit prevents the slow creep that causes most clutter.",
+      "After about sixty days of this rhythm, your home will feel noticeably lighter, your routines will be faster, and the deep clean we deliver every few weeks will go even further.",
+    ],
+  },
+  {
+    slug: "cleaning-with-kids-and-pets",
+    image: HERO_FAMILY,
+    category: "Cleaning Tips for Families with Children and Pets",
+    date: "Apr 22, 2026",
+    readTime: "8 min read",
+    title: "Keeping a Beautiful Home With Kids, Dogs and Real Life",
+    excerpt:
+      "Practical, judgment free cleaning strategies for the homes that matter most: the ones where kids draw on walls and dogs nap on the couch.",
+    content: [
+      "Homes with children and pets are alive. There's mud by the door, fingerprints on the fridge, and the occasional sock in a houseplant. That energy is the whole point, but it does require a different cleaning approach.",
+      "Start with the entryway. A heavy duty washable rug, a low bench for shoes, and a basket for backpacks captures most of the dirt before it reaches the rest of the home. This single zone, well organized, cuts cleaning time in half.",
+      "Use only pet and child safe products. Skip anything with ammonia, bleach fumes or strong essential oils on surfaces kids or pets touch. Plant based cleaners with enzymes handle nearly every household mess without the risk.",
+      "Choose materials that forgive. Performance fabric sofas, sealed hardwood, washable slipcovers and matte finishes hide everyday wear far better than glossy surfaces or delicate textiles.",
+      "Create a 'reset moment' for kids. A ten minute pickup before dinner, set to one song, becomes a habit that pays off for years. Children who help maintain their space grow up with stronger executive function and a calmer relationship with their environment.",
+      "For pets, the basics are vacuuming every other day with a HEPA filter, washing beds weekly, and treating accidents immediately with an enzymatic cleaner that breaks down odor at the source rather than masking it.",
+      "Schedule a recurring deep clean. Dander, fur, juice stains and crumb buildup live in places no daily routine reaches. A professional visit every two to four weeks resets the home so the small daily efforts stay manageable.",
+      "The goal isn't a museum. It's a home that feels fresh, safe and welcoming, even on the wildest Tuesday night.",
+    ],
+  },
+  {
+    slug: "pet-safe-cleaning-products",
+    image: HERO_PETS,
+    category: "Cleaning Tips for Families with Children and Pets",
+    date: "Apr 10, 2026",
+    readTime: "6 min read",
+    title: "Pet Safe Cleaning Products Every Boston Pet Parent Should Know",
+    excerpt:
+      "A clear list of products that protect dogs, cats and small humans, plus the common ingredients to avoid completely.",
+    content: [
+      "Pets explore the world with their paws and tongues, which means anything you spray on the floor ends up inside them eventually. Choosing the right products matters more than most owners realize.",
+      "Avoid these ingredients on surfaces pets touch: ammonia, chlorine bleach, phenols, glycol ethers, formaldehyde, and concentrated essential oils such as tea tree, pine, citrus and eucalyptus. Many cause respiratory irritation, liver issues or skin reactions.",
+      "Safer staples to keep on hand: plant based all purpose cleaners labeled pet safe, plain white vinegar diluted with water, baking soda, castile soap, hydrogen peroxide for accidents, and enzymatic cleaners formulated for pet odor.",
+      "For floors, a mixture of warm water, one cup of white vinegar and one teaspoon of mild dish soap handles most everyday cleaning beautifully and rinses off without residue.",
+      "For laundry, choose fragrance free, dye free detergents on pet bedding and blankets. Skip fabric softener, the coating it leaves traps dander and triggers allergies in both pets and people.",
+      "Always store cleaning supplies behind a closed cabinet with a child lock. Curious noses and toddler hands open doors faster than most parents expect.",
+      "Our CNA MAIDPRO team uses pet and child safe products by default on every visit. If your home has special sensitivities, just let us know and we'll customize the kit for your family.",
     ],
   },
 ];
 
-export const categories = ["All", "Tips & Tricks", "Home Care", "Airbnb Tips", "Pet Care"];
+export const categories = [
+  "All",
+  "Benefits of Hiring Professional Cleaning Services",
+  "Organization and Home Routine Guides",
+  "Cleaning Tips for Families with Children and Pets",
+];
+
+function HERO_INTERIOR_PLACEHOLDER() {
+  return "https://images.unsplash.com/photo-1484154218962-a197022b5858?w=1200&q=85&auto=format&fit=crop";
+}
