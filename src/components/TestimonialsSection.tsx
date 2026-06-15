@@ -131,19 +131,13 @@ export default function TestimonialsSection() {
               <Quote className="absolute top-10 right-10 w-20 h-20 text-accent/5 group-hover:scale-110 transition-transform duration-700" />
               <StarsRow delay={0.2} />
               <p className="mt-10 text-2xl md:text-3xl leading-snug text-primary font-light mb-12" style={{ fontFamily: "var(--font-heading)" }}>
-                 "I walked into my home after their first visit and just stood there. Every surface was spotless, even the places I forgot to mention. <em className="text-accent-dark">CNA MAIDPRO is something special.</em>"
+                 "{homeReviews[0].text}"
               </p>
               <div className="flex items-center justify-between pt-10 border-t border-border/40">
-                 <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 rounded-full bg-secondary flex items-center justify-center text-primary font-bold text-lg">O</div>
-                    <div>
-                        <h4 className="font-bold text-sm uppercase tracking-wide">Olivia M.</h4>
-                        <p className="text-[10px] uppercase tracking-widest text-muted-foreground">Beacon Hill, Boston</p>
-                    </div>
-                 </div>
+                 <h4 className="font-bold text-sm uppercase tracking-wide">{homeReviews[0].name}</h4>
                  <div className="hidden sm:flex items-center gap-2 bg-white px-4 py-2 rounded-full border shadow-sm">
                     <CheckCircle className="w-3 h-3 text-accent" />
-                    <span className="text-[9px] font-bold uppercase tracking-widest">Regular Service</span>
+                    <span className="text-[9px] font-bold uppercase tracking-widest">{homeReviews[0].service}</span>
                  </div>
               </div>
            </motion.div>
@@ -165,7 +159,7 @@ export default function TestimonialsSection() {
                     </p>
                     <div className="flex items-center justify-between border-t border-border/30 pt-6">
                        <h4 className="text-xs font-bold uppercase tracking-widest">{r.name}</h4>
-                       <span className="text-[9px] font-bold uppercase tracking-widest text-muted-foreground">{r.place}</span>
+                       <span className="text-[9px] font-bold uppercase tracking-widest text-muted-foreground">{r.service}</span>
                     </div>
                  </motion.div>
               ))}
