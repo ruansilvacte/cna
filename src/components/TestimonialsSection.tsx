@@ -3,32 +3,28 @@ import { Star, Quote, CheckCircle } from "lucide-react";
 import { useHomeContent } from "@/hooks/useHomeContent";
 import { useNavigate } from "react-router-dom";
 
-/* Boston-area reviews */
+/* Real reviews — sourced from /testimonials page */
 const homeReviews = [
   {
-    text: "I walked into my home after their first visit and just stood there. Every surface was spotless, even the places I forgot to mention. CNA MAIDPRO is something special.",
-    name: "Olivia M.",
-    place: "Boston, MA",
-    service: "Regular Cleaning",
+    text: "I can't say enough good things about this cleaning company. From the moment they arrived, it was clear that they take their work seriously. Every nook and cranny of my home was cleaned thoroughly. If you're looking for a top-notch cleaning service, I highly recommend giving them a call.",
+    name: "Fernando Henrique",
+    service: "Deep Cleaning",
     featured: true,
   },
   {
-    text: "As a Boston mom of three, I was drowning. CNA MAIDPRO gave me my weekends back. I can't put a price on that.",
-    name: "Sarah K.",
-    place: "Cambridge, MA",
-    service: "Recurring Service",
-  },
-  {
-    text: "They asked about our pets and our cleaning preferences before quoting. Felt like hiring a partner, not a vendor. Outstanding service.",
-    name: "Marcus T.",
-    place: "South End",
+    text: "Cindi cleaned our home meticulously! It smelled and looked so good. She went above and beyond our expectations. We have two dogs and a baby and our home now looks like it belongs in a magazine. Can't recommend enough!",
+    name: "Grace Bilodeau",
     service: "Regular Cleaning",
   },
   {
-    text: "Moved into a new apartment and it was rough. CNA MAIDPRO transformed it. I actually cried. It looked brand new.",
-    name: "Priya R.",
-    place: "Brookline, MA",
-    service: "Move In Cleaning",
+    text: "CNA MaidPro stands out in all five areas. They offer high quality work at a reasonable price, in a professional manner, and are attentive to our questions and always on time.",
+    name: "Jean-Paul Otin",
+    service: "Standard Cleaning",
+  },
+  {
+    text: "I am VERY pleased with the team I hired and how thorough they were. The kitchen cabinets, appliances, and bathroom all sparkled. They went above and beyond. I have used many cleaning services and they top the list.",
+    name: "Susan Campbell",
+    service: "Move In / Move Out",
   },
 ];
 
