@@ -1,9 +1,13 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import FloatingSocial from "@/components/FloatingSocial";
 import SeoHead from "@/components/SeoHead";
-import { ArrowRight, Phone, MapPin } from "lucide-react";
+import { ArrowRight, Phone, MapPin, BookOpen } from "lucide-react";
+import aboutKitchen from "@/assets/about-kitchen.jpg.asset.json";
+import aboutLiving from "@/assets/about-living.jpg.asset.json";
+import aboutInterior from "@/assets/about-interior.jpg.asset.json";
 
 const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
@@ -47,11 +51,29 @@ export default function About() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: 0.25 }}
-                className="text-lg leading-relaxed max-w-xl"
+                className="text-lg leading-relaxed max-w-xl mb-8"
                 style={{ color: "hsl(var(--cna-gray-mid))", fontFamily: "var(--font-body)" }}
               >
                 CNA MAIDPRO is more than a cleaning service. It's the result of a family's dedication to making every Boston home a true sanctuary.
               </motion.p>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 0.4 }}
+              >
+                <Link
+                  to="/customer-guidelines"
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm font-bold transition-all hover:gap-3"
+                  style={{
+                    background: "hsl(var(--cna-navy))",
+                    color: "white",
+                  }}
+                >
+                  <BookOpen className="w-4 h-4" />
+                  Customer Guidelines
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+              </motion.div>
             </div>
 
             {/* Right side stat line */}
