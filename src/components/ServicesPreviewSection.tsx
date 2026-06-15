@@ -27,19 +27,18 @@ const fallbackServices = [
     image: "/images/move-in.jpg",
     description: "A stress free transition. Whether arriving or departing, we ensure your Boston home is immaculate and ready.",
   },
-  {
-    id: "4",
-    slug: "airbnb-cleaning",
-    title: "Airbnb Turnover",
-    image: "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=700&q=85&auto=format&fit=crop",
-    description: "Lightning fast, hotel quality turnovers that protect your 5 star rating and delight every guest.",
-  },
 ];
+
+const isExcludedService = (s: { slug?: string; title?: string }) => {
+  const v = `${s.slug ?? ""} ${s.title ?? ""}`.toLowerCase();
+  return v.includes("airbnb") || v.includes("short") || v.includes("turnover") || v.includes("rental");
+};
 
 export default function ServicesPreviewSection() {
   const navigate = useNavigate();
   const { data: dbServices } = useServices();
-  const services = dbServices?.length ? dbServices : fallbackServices;
+  const sourceServices = dbServices?.length ? dbServices : fallbackServices;
+  const services = sourceServices.filter((s) => !isExcludedService(s)).slice(0, 3);
 
   return (
     <section
