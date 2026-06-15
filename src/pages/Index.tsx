@@ -9,7 +9,7 @@ import TestimonialsSection from "@/components/TestimonialsSection";
 import HomepageQuoteForm from "@/components/HomepageQuoteForm";
 import FinalCtaSection from "@/components/FinalCtaSection";
 import Footer from "@/components/Footer";
-import FloatingCallButton from "@/components/FloatingCallButton";
+import FloatingSocial from "@/components/FloatingSocial";
 import SeoHead from "@/components/SeoHead";
 
 export default function Index() {
@@ -49,7 +49,7 @@ export default function Index() {
       <FinalCtaSection />
 
       <Footer />
-      <FloatingCallButton />
+      <FloatingSocial />
     </div>
   );
 }

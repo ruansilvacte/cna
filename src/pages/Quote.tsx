@@ -219,7 +219,7 @@ export default function Quote() {
                            <div className="grid md:grid-cols-2 gap-6">
                               <div>
                                  <label className="block text-[10px] font-bold uppercase tracking-widest text-muted-foreground mb-3 ml-1">Full Name</label>
-                                 <input type="text" placeholder="First Name" value={fields.name} onChange={set("name")} 
+                                 <input type="text" placeholder="Your Name" value={fields.name} onChange={set("name")} 
                                     className={`w-full px-6 py-4 rounded-2xl border bg-secondary/30 focus:outline-none focus:ring-2 focus:ring-primary/10 transition-all ${errors.name ? "border-destructive" : "border-border"}`} />
                                  {errors.name && <p className="text-xs text-destructive mt-2 ml-1">{errors.name}</p>}
                               </div>
@@ -254,8 +254,6 @@ export default function Quote() {
                                  <option value="Recurring Cleaning">Recurring Cleaning</option>
                                  <option value="Deep Cleaning">Deep Cleaning</option>
                                  <option value="Move In / Move Out Cleaning">Move In / Move Out Cleaning</option>
-                                 <option value="Airbnb turnover">Airbnb / Short term Rental</option>
-                                 <option value="Post Construction">Post Construction</option>
                               </select>
                            </div>
 
